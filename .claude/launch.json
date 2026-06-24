@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mintlify-docs",
+      "runtimeExecutable": "mint",
+      "runtimeArgs": ["dev", "--no-open"],
+      "port": 3000
+    }
+  ]
+}

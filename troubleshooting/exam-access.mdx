@@ -1,77 +1,46 @@
 ---
-title: "Troubleshoot exam link and access problems"
+title: "Exam access and availability"
 sidebarTitle: "Exam access"
-description: "Fix invalid or expired exam tokens, blank loading screens, wrong email submissions, and exams that are paused or locked before you can begin."
+description: "What the 'not available yet', 'now closed', and archived messages mean, and how sessions resume after a reload."
 ---
 
-Exam access problems usually come from one of four sources: a token that has expired or already been used, a configuration issue with the underlying exam content, a mistake during the entry flow, or a teacher action that intentionally limits access. Each situation has a distinct cause and a specific resolution.
+If you can't get into an exam, it's usually because of the test's **schedule** or **status** — set by your teacher — rather than a problem with your link.
 
-## Invalid or expired token
+## "This exam is not available yet"
 
-Each exam link contains a single-use token that ties the session to your identity. If the token is invalid or has already been used, you will see an **"Invalid token"** or **"This link has expired"** error when you try to open the exam.
+Your teacher set an **open time** that hasn't arrived. You'll see:
 
-**Common causes:**
+> *"This exam is not available yet. It opens at {time}."*
 
-- You already started a session with this link and the browser closed before you submitted. Re-entry using the same link is blocked by default to prevent a student from starting over.
-- You copied only part of the URL (truncated links in email clients are a frequent culprit).
-- The teacher generated a new link after the original was sent, invalidating the old one.
+Come back during the window your teacher set.
 
-**What to do:**
+## "This exam is now closed"
 
-Contact your teacher and ask them to check the session status in their monitoring dashboard. If you did not submit and the teacher confirms the session is incomplete, they can unlock the exam or issue a new link. Do not ask for a new link if you completed and submitted — that session is already recorded.
+The exam's **close time** has passed:
 
-<Note>
-  If you are a teacher, you can see whether a student's session token was used by checking the student's row in the **Live monitoring** view. A session in "in progress" or "abandoned" state means the token was consumed. You can reset access from the **Verdicts and actions** page.
-</Note>
+> *"This exam is now closed. It closed at {time}."*
 
-## Exam shows a blank screen or loading spinner
+If you believe it closed too early, contact your teacher.
 
-If the exam content area shows a perpetual loading spinner or a blank white panel after you complete the proctoring setup, the issue is almost always with the exam content itself rather than with Proctorly.
+## The test was archived
 
-**Probable causes:**
+If your teacher archived the test, you'll see an archived notice (for example, *"This test has been archived by your teacher…"*). No new sessions can start on an archived test. Contact your teacher if you think this is a mistake.
 
-- The Google Form or other exam URL the teacher configured is set to restricted access (not publicly accessible). Students without a Google account, or students whose account is not in the allowed domain, will see a blank iframe.
-- A file upload (PDF, Google Doc embed) failed during exam creation, leaving the content slot empty.
-- The exam URL contains a typo — for example a link to an edit view instead of the published form.
+## I accidentally closed the tab
 
-**What to do:**
-
-Students should notify their teacher immediately. Teachers can verify the exam URL by opening the **Test settings** page and clicking the exam URL to confirm it loads correctly in an incognito window (to simulate the student's unauthenticated state).
-
-<Tip>
-  To test a Google Form as a student would see it, open the form link in an incognito browser window where you are not signed in to any Google account. If the form does not load there, students will not be able to see it either.
-</Tip>
-
-## Student entered the wrong email address
-
-Students enter their email address on the exam entry screen to identify themselves. This email is used to match their session to a grade in your grade book. If a student entered the wrong email address — a typo, a personal email instead of their school email, or their name instead of an address — the session will still be recorded, but grade matching will fail.
-
-**What to do (teacher):**
-
-1. Open the completed session in your **Reviewing reports** view.
-2. The session will appear under the email address the student typed. Find it by scrolling the session list or searching.
-3. In the session detail panel, use the **Edit student email** option to correct the address. This updates the record for grade matching without affecting the monitoring data.
-
-**What to do (student):**
-
-You cannot change the email yourself after submission. Let your teacher know as soon as possible what email address you used and what the correct one should be.
-
-## Exam is paused
-
-If your teacher pauses the exam while you are in it, or pauses it before allowing entry, you will see a pause screen with a message indicating the exam is temporarily on hold. You cannot navigate past this screen.
-
-**What you see:** A full-screen overlay with a message such as "Your teacher has paused this exam. Please wait."
-
-**What to do:** Wait without closing the browser tab. When the teacher resumes the exam, the overlay will lift automatically. Closing the tab while paused will end your session.
+Reopen the **same link in the same browser**. Proctorly usually **resumes you where you left off** rather than restarting the flow.
 
 <Note>
-  Teachers can pause all students simultaneously or pause individual students from the live monitoring dashboard.
+  Resume works within the **same browser tab/session**. If you switch to a different browser or device, you may not pick up where you left off.
 </Note>
 
-## Exam is locked
+## My teacher paused or locked me
 
-A locked exam is different from a paused one. When an exam is locked, new sessions cannot be started and in-progress sessions are blocked from continuing past the current question. You will see a message indicating the exam is locked.
+- **Paused** is a normal break — you can't answer, but it's fine. Wait for your teacher to resume you. Don't close the tab.
+- **Locked** means you can't interact until your teacher unlocks you.
 
-**What you see:** An overlay reading "This exam has been locked by your teacher."
+Neither one, by itself, means you're in trouble. See [Taking an exam](/students/taking-an-exam#a-few-honest-notes).
 
-**What to do:** Contact your teacher directly. The teacher must unlock the exam from the **Test settings** page before you can continue. Unlike a paused exam, a locked exam does not resume automatically — the teacher must take deliberate action to unlock it.
+<Info>
+  Proctorly support can't see or change a specific test. For anything about availability, scheduling, or access, **contact your teacher**.
+</Info>

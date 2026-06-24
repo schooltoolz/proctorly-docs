@@ -18,6 +18,10 @@
   "contextual": {
     "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
   },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
   "navigation": {
     "directory": "card",
     "products": [
@@ -43,11 +47,11 @@
             "root": "teachers/index",
             "pages": [
               "teachers/creating-a-test",
-              "teachers/inviting-students",
+              "teachers/configuring-monitoring",
+              "teachers/scheduling-and-sharing",
               "teachers/live-monitoring",
               "teachers/reviewing-reports",
               "teachers/verdicts-and-actions",
-              "teachers/alert-preferences",
               "teachers/accommodations"
             ]
           },
@@ -80,6 +84,13 @@
               "troubleshooting/camera-and-permissions",
               "troubleshooting/exam-access",
               "troubleshooting/monitoring-flags"
+            ]
+          },
+          {
+            "group": "Reference",
+            "icon": "book-marked",
+            "pages": [
+              "reference/glossary"
             ]
           }
         ]

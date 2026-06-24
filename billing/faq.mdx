@@ -1,51 +1,41 @@
 ---
-title: "Billing frequently asked questions"
+title: "Billing FAQ"
 sidebarTitle: "FAQ"
-description: "Answers to common questions about plan limits, billing cycles, downgrades, credit rollovers, cancellation, refunds, and accepted payment methods."
+description: "Common questions about Proctorly plans, switching between monthly and annual billing, and cancelling your subscription."
 ---
 
-The questions below cover the most common billing situations. If you do not find what you are looking for here, you can reach support from the **Help** menu inside Proctorly or by emailing support from your account settings.
+Billing runs through Stripe, and you manage everything from the **Billing** screen in your dashboard. The answers below cover what's confirmed about how plans and billing work. Anything not yet settled is flagged so it isn't guessed at.
 
 <AccordionGroup>
-  <Accordion title="What happens when I hit my test or student limits on the Free plan?">
-    If you have already run 2 tests in the current calendar month, the **New Test** button remains available but you will not be able to share the test link until the next month resets your quota — or until you upgrade to a paid plan.
-
-    If a test reaches its 15-student cap, any student who opens the exam link after the cap is reached will see a message that the session is full. Students who are already in an active session are not affected. Upgrading your plan immediately raises the cap for all open tests.
+  <Accordion title="What plans are available?">
+    Three tiers: **Free**, **Classroom**, and **School**. Every account starts on Free. Classroom and School can be billed **monthly or annually**. See [Plans](/billing/plans) for what each one unlocks.
   </Accordion>
 
-  <Accordion title="Can I switch between monthly and annual billing?">
-    Yes. You can switch at any time from the Stripe billing portal at **Settings → Billing**. When you switch from monthly to annual, Proctorly credits the remaining days of your current monthly period against the annual charge and bills you the prorated difference. When you switch from annual to monthly, the change takes effect at the end of your current annual period.
+  <Accordion title="How do I upgrade or change my plan?">
+    Open the **Billing** screen, choose the plan and billing interval you want, and complete the change through **Stripe Checkout**. The current price is shown live before you confirm.
   </Accordion>
 
-  <Accordion title="What happens to my reports if I downgrade?">
-    Integrity reports are subject to the retention policy of the plan you are on at the time the report would expire — not the plan you were on when the report was created.
+  <Accordion title="Can I switch between monthly and annual?">
+    Yes. You can toggle between monthly and annual billing from the **Billing** screen.
 
-    If you downgrade from School (unlimited retention) to Classroom, reports older than 90 days will be deleted on a rolling basis starting from the effective date of the downgrade. If you downgrade from Classroom to Free, reports older than 7 days are removed. You will receive an email reminder before the deletion window begins.
-
-    <Warning>
-      Export or save any reports you want to keep before downgrading. Once a report is deleted due to the retention policy, it cannot be recovered.
-    </Warning>
+    <Info>
+      **Reviewer TODO.** Whether switching is prorated, and exactly when the new interval takes effect, isn't documented in the product. Confirm with the Proctorly team before describing the proration behavior.
+    </Info>
   </Accordion>
 
-  <Accordion title="Do unused credits roll over?">
-    Yes. Credits you purchase never expire and carry over indefinitely. They are not tied to a billing cycle and they survive plan changes, including cancellation of your subscription. Your credit balance remains intact regardless of what happens to your plan — the only way credits are consumed is when a Full Sweep session completes and Integrity Pass is not active.
+  <Accordion title="How do I cancel?">
+    You can cancel your subscription from the **Billing** screen.
+
+    <Info>
+      **Reviewer TODO.** What happens to your account and existing reports after cancellation (immediate downgrade vs. end-of-period, and data retention) isn't settled. Don't publish specifics until confirmed.
+    </Info>
   </Accordion>
 
-  <Accordion title="How do I cancel my subscription?">
-    Open **Settings → Billing** and click **Manage billing** to go to the Stripe billing portal. From there, select **Cancel plan**. Your subscription remains active until the end of the current billing period, after which your account reverts to the Free plan. You keep all reports that fall within the Free plan's 7-day retention window at that point; older reports are removed.
-
-    Cancelling your Proctorly subscription does not cancel Integrity Pass automatically — you need to cancel that separately in the same billing portal if you no longer need it.
-  </Accordion>
-
-  <Accordion title="Can I get a refund?">
-    Proctorly offers refunds on monthly subscriptions within 48 hours of the charge if you have not run any tests during that billing period. Annual subscriptions can be refunded within 14 days of the initial purchase if no tests have been run. Credit bundle purchases are non-refundable once any credits from the bundle have been consumed.
-
-    To request a refund, contact support from **Settings → Help** with the subject line "Refund request" and include your account email address. Stripe will process eligible refunds within 5–10 business days.
-  </Accordion>
-
-  <Accordion title="What payment methods are accepted?">
-    Proctorly uses Stripe to process payments. Stripe accepts all major credit and debit cards (Visa, Mastercard, American Express, Discover), as well as some regional payment methods depending on your location. You can view and update your saved payment method at any time from **Settings → Billing → Manage billing**.
-
-    Purchase orders and invoice-based billing are not currently available for individual or classroom subscriptions. If your institution requires invoice billing, contact the Proctorly sales team.
+  <Accordion title="What is the Integrity Pass?">
+    It's a separate add-on, purchased independently of your plan. What it includes isn't finalized yet — see [Add-ons](/billing/credits).
   </Accordion>
 </AccordionGroup>
+
+<Warning>
+  **Not yet answerable.** Prices, Free-tier limits, refund terms, accepted payment methods, and data-retention periods are **not** defined in the product. These are open questions for the Proctorly team — see the [Plans](/billing/plans#open-questions) page. Don't fill them in from assumptions.
+</Warning>

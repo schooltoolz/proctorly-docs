@@ -1,137 +1,43 @@
 ---
-title: "Understanding and disputing monitoring flags"
+title: "Understanding monitoring flags"
 sidebarTitle: "Monitoring flags"
-description: "Learn what each flag type means, why false positives happen, how to dismiss individual flags, and how sensitivity settings and accommodations reduce noise."
+description: "For teachers — what flags are, what each type means, and where to review and decide on them."
 ---
 
-Proctorly records a flag each time the monitoring system detects behavior that may indicate a problem. Not every flag means a student cheated — many flags have innocent explanations. Your job as a teacher is to review the evidence, consider the context, and decide whether each flag is worth counting against a student's integrity score. Understanding what triggers each flag, and what commonly causes false positives, helps you make faster and more accurate decisions.
-
-## Flag types and false positives
-
-<AccordionGroup>
-  <Accordion title="face_not_detected — no face visible in webcam feed">
-    **What triggers it:** The MediaPipe face detection model running in the student's browser stops finding a face in the webcam frame. A flag is recorded for each continuous period where no face is detected beyond the threshold set by your monitoring profile (5 seconds at Medium sensitivity; longer at lower sensitivity settings).
-
-    **Legitimate causes:**
-    - The student is looking down at notes or a keyboard
-    - The student is wearing a hat with a brim, large glasses, or a face covering that confuses the model
-    - Poor or uneven lighting — strong backlight or a dark room reduces detection confidence
-    - The camera angle is too high or too low so only part of the face is visible
-    - The student leaned back or turned away briefly
-
-    **What to check:** Open the webcam snapshot gallery for the session. Snapshots tied to this flag have a red border. If the snapshots show the student present at their desk, the flag is a false positive from a detection confidence issue rather than absence.
-
-    <Tip>
-      Students who consistently generate `face_not_detected` flags due to lighting or accessories benefit from a `support_level_1` or `support_level_2` sensitivity accommodation, which extends the no-face threshold before a flag fires.
-    </Tip>
-  </Accordion>
-
-  <Accordion title="multiple_faces — more than one face detected">
-    **What triggers it:** The face detection model identifies two or more faces in the webcam frame at the same time.
-
-    **Legitimate causes:**
-    - A family member, roommate, or classmate walks through the background
-    - A photo on the wall behind the student is picked up by the model
-    - A second monitor positioned behind the webcam shows a face on screen
-    - Reflective surfaces (mirrors, glass) create a ghost image
-
-    **What to check:** Webcam snapshots flagged for `multiple_faces` show what the camera captured. If the second face appears only briefly and is clearly in the background, this is almost certainly not a collaboration attempt. Duration matters — a one-second flag from someone passing by is very different from a sustained multi-minute flag.
-
-    **Base penalty impact:** `multiple_faces` carries the highest base penalty (20 points) because it is the flag most strongly associated with unauthorized assistance. Dismiss with care.
-  </Accordion>
-
-  <Accordion title="tab_switch — student navigated away from the exam tab">
-    **What triggers it:** The browser's Page Visibility API reports that the exam tab lost focus. This happens when the student switches to another tab, switches to a different application, opens a new window, or uses Alt+Tab.
-
-    **Legitimate causes:**
-    - System notifications pulling focus (calendar reminders, OS alerts, messaging apps)
-    - A second monitor — the student may have moved their cursor or clicked on the other screen without switching browser tabs, but some OS-level window managers still report a focus change
-    - Accidentally clicking outside the browser window
-    - Accessing an open-book resource the teacher has authorized
-
-    **What to check:** Look at the frequency and duration of the switches. A cluster of very short switches (under 2 seconds) that all occur around the same time often indicates system notifications rather than deliberate tab switching. A 5-minute gap with no answer progress and a `tab_switch` at the start of that gap is more concerning.
-
-    <Note>
-      If you allow open-book exams, consider lowering your alert sensitivity to **Low** or disabling the `alert_tab_switches` check-in toggle for that exam. The flags are still recorded, but you will not receive live alerts for expected behavior.
-    </Note>
-  </Accordion>
-
-  <Accordion title="audio_detected — sound picked up by the microphone">
-    **What triggers it:** The audio monitoring system detects sustained sound above its threshold through the student's microphone. The flag records the timestamp and duration of the audio event.
-
-    **Legitimate causes:**
-    - Ambient noise from the environment — traffic, other people in the room, a TV or radio in the background
-    - The student reading questions aloud quietly or muttering while thinking
-    - An air conditioner, fan, or other appliance
-    - The student coughing, sneezing, or talking to themselves
-    - A phone notification or ringtone
-
-    **What to check:** `audio_detected` flags indicate that sound was present — they do not identify the source or whether the sound was a conversation. This flag on its own is weak evidence. It gains more weight when combined with other flags at the same timestamp, particularly `face_not_detected` or `multiple_faces`.
-
-    **Base penalty impact:** `audio_detected` carries a 10-point base penalty, the lowest of the major flag types. It is designed as a supporting signal rather than a standalone indicator.
-  </Accordion>
-</AccordionGroup>
-
-## Dismissing individual flags
-
-You can dismiss any flag you consider a false positive. Dismissed flags do not count toward the student's integrity score.
-
-<Steps>
-  <Step title="Open the session report">
-    Navigate to your test's post-exam report and expand the row for the student whose flags you want to review.
-  </Step>
-  <Step title="Locate the flag in the timeline">
-    The flag timeline lists each flag with its type, timestamp, duration, and detection confidence. Find the specific flag you want to dismiss.
-  </Step>
-  <Step title="Click Dismiss">
-    Click **Dismiss** on the flag row. A confirmation appears and the flag's weight is immediately removed from the integrity score calculation. The flag remains visible in the timeline with a "Dismissed" label so you have a record of your decision.
-  </Step>
-  <Step title="Optionally confirm flags you consider valid">
-    Click **Confirm** on flags you believe represent genuine violations. Confirmed flags count at full weight instead of the default half-weight applied to undecided flags.
-  </Step>
-</Steps>
-
 <Note>
-  Dismissed flags remain visible in the timeline with a "Dismissed" label, giving you a complete audit trail of your review decisions.
+  This page is for **teachers**. Flags are reviewed in your dashboard after an exam.
 </Note>
 
-## How sensitivity settings affect flag thresholds
+A **flag** is something Proctorly noted during a session that may be worth your attention. A flag is a **note, not a verdict** — many have ordinary explanations. You review the flags and snapshots in the report and decide what matters.
 
-Your account's alert sensitivity setting controls how quickly patterns accumulate into check-in alerts on the live monitoring dashboard. It also affects the thresholds for some flag types:
+## What each flag means
 
-| Sensitivity | Tab switch alert | No-face threshold | Effect on flags |
-|-------------|-----------------|------------------|-----------------|
-| **Low** | Every 2nd–3rd switch | Longer than standard | Fewer alerts, same flags recorded |
-| **Medium** (default) | Every switch | 5 seconds | Standard behavior |
-| **High** | Every switch | 5 seconds | Alerts fire earlier, same flags recorded |
+| Flag | What it means |
+|---|---|
+| `face_not_detected` | No face visible in the webcam. |
+| `multiple_faces` | More than one person visible. |
+| `tab_switch` | Left the exam tab or switched windows. |
+| `fullscreen_exit` | Left full-screen mode. |
+| `screen_share_stopped` | Screen sharing was interrupted. |
+| `audio_detected` | Loud or suspicious background audio. |
+| `multiple_monitors` | More than one display detected. |
+| `screenshot_attempt` | An apparent screenshot attempt. |
 
-Sensitivity affects when check-in alert cards appear during a live exam, but it does not suppress flag recording. All flag events are written to the session record regardless of sensitivity level, and all appear in the post-exam report.
+Each flag carries a **confidence** and feeds into the session's **risk level** (`High`, `Medium`, `Low`, or `None`).
 
-To change your sensitivity setting, go to **Settings → Alert preferences** and adjust the **Alert sensitivity** slider. Click **Save preferences** to apply the change.
+## Reviewing and deciding
 
-## How student accommodations reduce false positives
+You **confirm** or **dismiss** each flag, and can set a whole-session **verdict** of **Clear** or **Escalate**. Snapshots captured during the exam back up each flag.
 
-Accommodations let you apply per-student overrides that raise thresholds before flags are generated, not just before alerts fire. This is the right tool when a specific student consistently generates false positives due to a disability, assistive technology, or physical setup.
+<CardGroup cols={2}>
+  <Card title="Reviewing results" icon="bar-chart-3" href="/teachers/reviewing-reports">
+    Integrity scores, flags, confidence, risk levels, and snapshots.
+  </Card>
+  <Card title="Verdicts & actions" icon="gavel" href="/teachers/verdicts-and-actions">
+    Confirm or dismiss flags and set Clear or Escalate.
+  </Card>
+</CardGroup>
 
-Two accommodation options directly reduce flag noise:
-
-- **Camera exempt** — Disables webcam monitoring entirely for the student. No `face_not_detected` or `multiple_faces` flags are recorded. Use this for students who cannot use a webcam due to a disability or documented hardware issue.
-- **Sensitivity override** — Applies `support_level_1` or `support_level_2` monitoring profiles to the student, which use more permissive thresholds than the standard profile. For example, `support_level_2` raises the no-face threshold to 15 seconds and requires more tab switches before alerting.
-
-To add an accommodation, open the test settings page, scroll to the **Accommodations** section, and click **Add accommodation**. Enter the student's email address and configure the appropriate fields. See [Setting accommodations](/teachers/accommodations) for full instructions.
-
-## Snapshot gallery shows blank images
-
-If the webcam snapshot gallery is empty or shows blank frames for a session, the student's browser either blocked the camera after the setup flow completed, or the permission was revoked mid-session.
-
-**What to do:**
-
-Check the session's flag timeline for a `screen_share_stopped` or other early-termination flag. If the camera was blocked from the start, no snapshots will exist. Blank images mid-session suggest the browser silently lost camera access.
-
-This situation reduces the evidence available for your review. Factor in the absence of snapshot data when setting your verdict.
-
-## AI integrity report not generating
-
-The AI integrity report is generated by sending the session's flag data to Anthropic's Claude API. If the report fails to generate or shows an error, the Anthropic API may be temporarily unavailable.
-
-**What to do:** Wait a few minutes and click **Generate Report** again. The API is typically restored quickly. If the issue persists for more than 30 minutes, contact [support@proctorly.schooltoolz.com](mailto:support@proctorly.schooltoolz.com). The full flag timeline and webcam snapshot gallery are always available for your review regardless of AI report availability.
+<Info>
+  Need different conditions for one student? See [Accommodations](/teachers/accommodations) (currently in beta).
+</Info>

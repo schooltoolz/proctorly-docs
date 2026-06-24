@@ -1,0 +1,26 @@
+---
+title: "Glossary"
+sidebarTitle: "Glossary"
+description: "The terms Proctorly uses — test, session, flag, snapshot, integrity score, verdict, and more — with consistent, plain definitions."
+---
+
+A quick reference for the words used throughout these docs and in the product. The product mostly says **"test"** rather than "exam" — these docs follow that.
+
+| Term | Definition |
+|---|---|
+| **Test** / **Exam** | A proctored assessment a teacher creates. The UI mostly says "test." |
+| **Session** | One student's single attempt at a test. |
+| **Flag** | A single detected integrity event within a session. |
+| **Snapshot** | A webcam or screen image captured during a session. |
+| **Integrity score** | A 0–100 cleanliness score for a session; starts at 100 and loses points per flag. Higher is cleaner. |
+| **Risk level** | A session's overall level of concern: `High`, `Medium`, `Low`, or `None`. |
+| **Verdict** | A teacher's session-level override: **Clear** (forces the score to 100) or **Escalate** (treats every flag at full weight). |
+| **Capture mode** | Whether snapshots are stored for all flags (**Full**) or only the most important ones (**Selective**). Set by plan. |
+| **Waiting room** | An optional hold after setup until the teacher admits the student. |
+| **Pause** | A teacher control — the student can't answer, but it's a normal break, not a penalty. |
+| **Lock** | A teacher control — the student can't interact with the test until the teacher unlocks it. |
+| **Accommodation** | A per-student override a teacher sets (for example, camera-exempt or adjusted sensitivity). Currently in beta. |
+
+<Info>
+  Looking for what a specific **flag type** means? See [Reviewing results](/teachers/reviewing-reports#flag-types).
+</Info>

@@ -1,61 +1,86 @@
 ---
-title: "Monitoring active student exam sessions in real time"
+title: "Running an exam live"
 sidebarTitle: "Live monitoring"
-description: "Use the live dashboard to watch every session, see flag counts and risk levels, send messages to students, manage pause requests, and apply mass controls."
+description: "Watch active sessions in real time, understand each session state, and use pause, lock, messaging, snapshots, mass actions, and the waiting room."
 ---
 
-The live monitoring dashboard gives you a real-time view of every student session while the exam is in progress. Open it from the test detail page by clicking **Live monitor**. The dashboard updates automatically — you do not need to refresh. Each session row shows the student's name, current flag count, and a color-coded risk level: green for Low, amber for Medium, and red for High.
+The **Live monitor** shows every active session for a test as a tile, in real time. Each tile carries a **status dot** and a set of controls. From here you watch the room, step in when needed, and admit students if you're using a waiting room.
 
-## What you see
+## Session states
 
-Sessions are listed in the active sessions table. Each row shows:
+The status dot tells you what state each student is in.
 
-- Student name
-- Number of flags raised so far
-- Risk level (Low / Medium / High) with color coding
-- Time elapsed
-- Any pending pause requests
-
-A summary bar at the top shows the total count of active sessions at a glance.
-
-## Broadcasting messages to students
-
-You can send a text message to one student or all active students directly from the live dashboard. Messages are delivered as a banner notification inside the student's exam window.
-
-<Steps>
-  <Step title="Open the message panel">
-    Click **Broadcast** in the dashboard toolbar to open the message panel. To message a single student, click the message icon on their session row instead.
-  </Step>
-  <Step title="Write your message">
-    Type your message in the text field. Messages must be between **1 and 280 characters**. A character counter is displayed below the field.
-  </Step>
-  <Step title="Send">
-    Click **Send to all** to broadcast to every active session, or **Send** to deliver to the selected student. The message appears immediately in the student's exam window.
-  </Step>
-</Steps>
-
-## Approving and rejecting pause requests
-
-When a student clicks the pause button, a notification appears on your dashboard. The notification shows the student's name, their optional pause note, and the time elapsed since they requested the pause.
-
-Click **Approve** to pause the student's session. Click **Reject** to dismiss the request and let their timer continue. Once approved, click **Resume** on the student's row to end the pause and return them to active status.
-
-## Mass controls
-
-The mass controls bar at the top of the dashboard applies an action to all active sessions at once. Use these when you need to address the whole class simultaneously.
-
-<CardGroup cols={3}>
-  <Card title="Mass screenshot" icon="camera">
-    Captures a webcam snapshot from every active session immediately. Snapshots appear in each student's session gallery in the post-exam report.
+<CardGroup cols={2}>
+  <Card title="Active" icon="circle-play">
+    The student is taking the exam normally.
   </Card>
-  <Card title="Mass pause / resume" icon="pause">
-    Pauses all active sessions at once, stopping every student's timer. Click again to resume everyone. A confirmation prompt appears before either action.
+  <Card title="Paused" icon="circle-pause">
+    A legitimate break or interruption. The student **can't answer**, but monitoring continues and full-screen is relaxed until you resume them.
   </Card>
-  <Card title="Mass lock / unlock" icon="lock">
-    Locks all screens, preventing students from interacting with their exam. Use this if you need to address the class without students continuing. A confirmation prompt appears before locking.
+  <Card title="Locked" icon="lock">
+    Review or intervention. The student **cannot interact** with the test until you explicitly unlock it.
+  </Card>
+  <Card title="System-paused" icon="rotate-cw">
+    Screen sharing was interrupted and Proctorly paused the session automatically.
   </Card>
 </CardGroup>
 
 <Warning>
-  Mass pause and mass lock affect every active session for the test. Students see a notification on their screen when these actions are applied. Use them deliberately.
+  **System-paused is a recovery state, not a discipline action.** When you see `system_paused`, it usually means screen sharing dropped — the student didn't necessarily do anything wrong. Treat it as "needs to resume sharing," not "caught cheating."
 </Warning>
+
+## Actions you can take
+
+<AccordionGroup>
+  <Accordion title="Pause / Resume a session">
+    Pause a single student for a legitimate break, then resume them. While paused, they can't answer but monitoring keeps running.
+  </Accordion>
+  <Accordion title="Lock / Unlock a session">
+    Lock a student out of interacting with the test for review or intervention. They stay locked until you unlock.
+  </Accordion>
+  <Accordion title="Take a snapshot">
+    Capture a snapshot of a specific student on demand.
+  </Accordion>
+  <Accordion title="Send a message">
+    Send a message to a student — either a **preset nudge** (for example, *"Need a moment? You can request a pause…"*) or your own custom text.
+  </Accordion>
+  <Accordion title="Admit from the waiting room">
+    If the **Waiting room** is enabled, students are held after setup until you admit them from the live monitor.
+  </Accordion>
+  <Accordion title="Approve pause requests">
+    Students can request a pause. You approve it from the live monitor, which moves the session into the paused state.
+  </Accordion>
+  <Accordion title="Force-end a session">
+    End a student's session.
+  </Accordion>
+</AccordionGroup>
+
+## Mass actions
+
+When you need to act on the whole room at once, mass actions apply across every active session:
+
+<CardGroup cols={3}>
+  <Card title="Screenshot all" icon="camera">
+    Capture a snapshot from every active session.
+  </Card>
+  <Card title="Pause all" icon="circle-pause">
+    Pause every active session at once.
+  </Card>
+  <Card title="Lock all" icon="lock">
+    Lock every active session at once.
+  </Card>
+</CardGroup>
+
+## What the student sees
+
+The student side mirrors the live monitor:
+
+- A student can **raise their hand** with the **"I have a question"** button.
+- A student can **request a pause**, which you approve.
+- If **Student alerts** is enabled for the test, the student sees on-screen warnings as violations happen.
+
+## Next
+
+<Card title="Reviewing results" icon="bar-chart-3" href="/teachers/reviewing-reports" horizontal>
+  Once sessions finish, read each student's integrity score and decide on their flags.
+</Card>

@@ -1,67 +1,45 @@
 ---
-title: "Proctorly quickstart: run your first proctored exam"
+title: "Quickstart: run your first proctored test"
 sidebarTitle: "Quickstart"
-description: "Sign up, create a test with a Google Form or file upload, share the link with students, and review your first AI integrity report."
+description: "Sign in, create a test, configure monitoring, share one link with your class, watch live, and review the report."
 ---
 
-This guide walks you through the complete Proctorly workflow from sign-up to post-exam review. Students need no Proctorly account — they access the exam through the unique URL you share. You can have a live proctored test ready in under ten minutes.
+This walks a teacher through Proctorly end to end. Students need no account — they take the exam through a single link you share.
 
 <Steps>
-  <Step title="Sign up at proctorly.schooltoolz.com">
-    Go to [proctorly.schooltoolz.com](https://proctorly.schooltoolz.com) and create an account. You can sign up with Google, Microsoft, or an email address and password.
-
-    After signing in you land on the teacher dashboard. No credit card is required to start — the Free plan includes 2 proctored tests per month with up to 15 students each.
+  <Step title="Sign in">
+    Sign in to your Proctorly dashboard with email and password, or with **Google** or **Microsoft**. New accounts go through a short onboarding ("About you" and creating a first exam), with an in-product guided tour.
   </Step>
 
   <Step title="Create a test">
-    Click **New Test** from the **My Tests** page. Give the test a title, set an optional time limit, and choose your exam source.
-
-    Proctorly supports two exam source types:
-
-    - **Google Forms URL** — paste a `docs.google.com/forms` link. Proctorly embeds the form inside the proctored session so students never leave the monitored window.
-    - **File upload** — upload a PDF, Excel (.xlsx), or Word (.docx) file up to 10 MB. Proctorly stores the file securely and serves it inside the session.
+    Start a new test, choose a content source — a **Google Form**, **PDF**, or **Word document** — and set a name, duration, and color. Proctorly generates a unique student link. See [Building a test](/teachers/creating-a-test).
 
     <Note>
-      File uploads are limited to 10 MB. For larger exams, use a Google Forms URL instead.
+      Google Forms is the primary, best-supported source. The student experience for PDF/Word exams should be confirmed before relying on it — see the note in [Building a test](/teachers/creating-a-test).
     </Note>
   </Step>
 
-  <Step title="Add student emails to invite">
-    On the test settings page, enter your students' email addresses in the **Invited students** field. Proctorly uses this list to match sessions to known students and pre-fill names during the student setup flow.
-
-    Inviting students is optional — anyone with the exam link can start a session. Adding emails lets you track attendance and associate sessions with specific students in the integrity report.
+  <Step title="Configure monitoring">
+    On the test's **Settings**, choose what Proctorly watches for — face detection, tab switching, full screen, audio, and more — and decide whether to use a waiting room or on-screen student alerts. See [Configuring monitoring](/teachers/configuring-monitoring).
   </Step>
 
-  <Step title="Share the exam link">
-    After creating the test, Proctorly generates a unique token URL:
+  <Step title="Schedule and share">
+    Optionally set **opens at** / **closes at** times, then share the test's single link with your class by email, your LMS, or a class message. Everyone uses the **same link** — there's no per-student login. See [Scheduling & sharing](/teachers/scheduling-and-sharing).
 
+    ```text
+    https://www.proctorly.co/t/<link>
     ```
-    https://proctorly.schooltoolz.com/t/<token>
-    ```
-
-    Copy this link and share it with your students via email, your LMS, or a class chat. Students do **not** need a Proctorly account to open it.
-
-    <Warning>
-      Keep the token link private. Anyone with the link can start a session. If you need to prevent new students from joining, set the test status to **Closed** in the test settings.
-    </Warning>
   </Step>
 
-  <Step title="Monitor the live dashboard">
-    While the exam is running, open the test from **My Tests** and click **Live Monitoring**. You can see each active session, view webcam snapshots, and watch flags appear in real time.
-
-    Proctorly captures webcam and screen snapshots every 3 minutes as a baseline, plus an immediate snapshot whenever a flag fires.
+  <Step title="Watch live (optional)">
+    Open the **Live monitor** to see active sessions as tiles. You can pause or lock a student, message them, take a snapshot, admit from the waiting room, and use mass actions. See [Live monitoring](/teachers/live-monitoring).
   </Step>
 
-  <Step title="Review the integrity report">
-    Once a student submits, click **View Report** on the test. Each student session shows:
-
-    - A **flag timeline** with timestamps for every detected event
-    - **Webcam and screen snapshots** attached to flag events
-    - An **AI-generated integrity summary** that explains the findings in plain language
-    - Verdict controls to mark the session **Clear**, **Flag for Review**, or **Escalate**
-
-    <Tip>
-      The AI summary is generated by Claude Haiku. It synthesizes all detected events into a short paragraph — useful for making fast verdict decisions without reviewing every timestamp manually.
-    </Tip>
+  <Step title="Review the report">
+    After students submit, open the **Report**. Each session shows an integrity score and its flags. **Confirm** or **dismiss** flags, set a **Clear** or **Escalate** verdict, review snapshots, and export to CSV. See [Reviewing results](/teachers/reviewing-reports).
   </Step>
 </Steps>
+
+<Info>
+  Curious what students experience? Walk through [Taking an exam](/students/taking-an-exam).
+</Info>

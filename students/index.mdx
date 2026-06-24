@@ -1,15 +1,54 @@
 ---
-title: "Student guide: taking a proctored exam online"
-sidebarTitle: "Overview"
-description: "Learn what to expect as a student in a Proctorly-proctored exam — from clicking your unique link to completing the exam and seeing the done screen."
+title: "Taking your test"
+sidebarTitle: "Start here"
+description: "Open your exam link, get set up, and take your test. No account needed."
 ---
 
-You do not need a Proctorly account to take a proctored exam. Your teacher sends you a unique link, and everything happens in your browser. When you open the link, Proctorly guides you through a short setup to grant camera and screen-share permissions, then you take the exam as normal.
+You don't need an account, and there's nothing to install. Your teacher gives you a link (or a code) — open it, follow the short setup, and take your test. This section walks you through it and helps if your camera or screen won't cooperate.
 
-During the session, Proctorly monitors your webcam, the active tab, ambient audio, and your shared screen in the background. You will not see any pop-ups or interruptions while you work unless you request a pause or your browser blocks a required permission. The monitoring engine runs entirely in your browser tab — there is no extension to install and no software to download.
+<div className="not-prose mx-auto my-6 w-full max-w-xl rounded-2xl border border-gray-200 bg-gray-50 p-5 dark:border-white/10 dark:bg-white/[0.03]">
+  <div className="flex items-center gap-2 text-sm font-semibold text-gray-900 dark:text-gray-50">
+    <Icon icon="key-round" size={16} />
+    Did your teacher give you a link or code?
+  </div>
+  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+    Paste it below to go straight to your test.
+  </p>
+  <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-stretch">
+    <input
+      id="ptly-code"
+      type="text"
+      autoComplete="off"
+      placeholder="Paste your exam link or code"
+      className="h-11 w-full min-w-0 flex-1 rounded-full border border-gray-200 bg-white px-4 text-sm text-gray-900 outline-none ring-0 placeholder:text-gray-400 focus:border-indigo-400 dark:border-white/10 dark:bg-white/[0.04] dark:text-gray-50 dark:placeholder:text-gray-500"
+    />
+    <button
+      type="button"
+      data-ptly-start
+      className="h-11 shrink-0 cursor-pointer rounded-full bg-indigo-600 px-5 text-sm font-semibold text-white transition hover:bg-indigo-500"
+    >
+      Start my test
+    </button>
+  </div>
+  <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+    Or just open the link your teacher sent you — it works the same way.
+  </p>
+</div>
 
-When you submit your exam, the monitoring session ends and you see a completion screen. If your teacher has enabled identity verification, you will be prompted to take a quick photo of your ID before the session closes. After that, you are done — your teacher reviews the session record and any flags on their end.
+## Guides
 
-<Note>
-  The pages in this section cover each part of the process in detail. Start with [Taking an exam](/students/taking-an-exam) if this is your first time, or jump to [Browser permissions](/students/browser-permissions) if you are having trouble with camera or screen-share setup.
-</Note>
+<CardGroup cols={3}>
+  <Card title="Taking an exam" icon="book-open" href="/students/taking-an-exam">
+    A step-by-step walkthrough, from opening your link to finishing.
+  </Card>
+  <Card title="Camera & screen setup" icon="webcam" href="/students/browser-permissions">
+    Allow your camera and share your screen — and fix it if it won't.
+  </Card>
+  <Card title="ID photo" icon="id-card" href="/students/id-verification">
+    How the ID photo step works, if your teacher asks for it.
+  </Card>
+</CardGroup>
+
+<Info>
+  Stuck on a specific test, or not sure what's expected? **Ask your teacher.** They set up the test and can help — Proctorly support can't see or change it.
+</Info>

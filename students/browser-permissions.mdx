@@ -1,84 +1,75 @@
 ---
-title: "Allow camera and screen share for your exam"
-sidebarTitle: "Browser permissions"
-description: "Step-by-step instructions for granting camera, microphone, and screen-share permissions in Chrome and Edge so your proctored exam runs without issues."
+title: "Camera & screen setup"
+sidebarTitle: "Camera & screen setup"
+description: "Use the right browser, allow your camera, share your entire screen, and fix it if a permission gets blocked."
 ---
 
-Proctorly needs access to your camera, microphone, and screen to monitor your exam session. These are standard browser permissions — no extension or plugin is required. Your browser will show a prompt for each permission during the exam setup flow. If you accidentally block a permission, or if your browser does not show the prompt, you can re-enable it from the browser's site settings.
+To take your test, your browser needs permission to use your **camera** and to **share your screen**. There's nothing to install — these are built into your browser. This page helps you get set up and fix the most common snags.
 
-## What each permission is used for
+## Use the right browser and device
 
-- **Camera** — Proctorly captures webcam snapshots and runs face detection every 30 seconds to verify you are present. If your teacher has granted you a camera exemption, this permission is not required.
-- **Microphone** — Proctorly samples ambient audio to detect unusual noise events. It does not record or store your voice; only volume level is analyzed.
-- **Screen share** — You must share your **entire screen** (not a window or single tab). This lets Proctorly verify that you are not using other applications during the exam. If you stop sharing mid-exam, a flag is recorded.
+<CardGroup cols={2}>
+  <Card title="Chrome or Edge on a computer" icon="circle-check">
+    The most reliable setup. Firefox and Safari can work too, but may have minor quirks.
+  </Card>
+  <Card title="Not an iPhone or iPad" icon="circle-x">
+    iPhones and iPads **can't share their screen**. If your test needs screen sharing, use a laptop or desktop.
+  </Card>
+</CardGroup>
 
-<Note>
-  No browser extension is required. All permissions use standard browser APIs built into Chrome and Edge.
-</Note>
+<Warning>
+  If your teacher set the test to **desktop only**, you can't start it on a phone or tablet — use a computer.
+</Warning>
 
-## Granting permissions during setup
+## Share your *entire* screen
 
-When you open your exam link and complete the name and email step, Proctorly will trigger permission prompts automatically. Click **Allow** on each one. If you miss a prompt or click **Block**, follow the steps below to re-enable the permission.
+When you click **"Start Test"**, your browser asks what to share. Choose your **entire screen** — not a single window and not a browser tab. If you pick the wrong one, you'll be asked to try again. Just pick the whole screen and continue.
 
-## Fixing blocked permissions
+## If your camera is blocked
+
+If your camera won't turn on, re-allow it and reload:
 
 <Tabs>
   <Tab title="Chrome">
-    If Chrome blocked a permission, a small icon appears in the address bar (a camera icon with a red X, or a lock icon).
-
-    **To re-enable camera or microphone:**
-
-    1. Click the **lock icon** or **camera icon** in the address bar.
-    2. Find **Camera** or **Microphone** in the list.
-    3. Change the setting from **Blocked** to **Allow**.
-    4. Reload the page and work through the setup flow again.
-
-    **To re-enable from Chrome settings:**
-
-    1. In the address bar, type `chrome://settings/content/camera` and press Enter.
-    2. Under **Not allowed to use your camera**, find `proctorly.schooltoolz.com`.
-    3. Click the trash icon to remove the block, then reload your exam link and click **Allow** when prompted.
-
-    **For screen share**, Chrome will show a picker dialog asking which screen to share. Select your **entire screen** from the screen thumbnail at the top of the picker (not a specific window or Chrome tab), then click **Share**.
-
-    <Warning>
-      If you share a window or a browser tab instead of your entire screen, Proctorly may flag this or be unable to continue setup. Choose the screen thumbnail, not a window.
-    </Warning>
+    <Steps>
+      <Step title="Open the site's permissions">
+        Click the icon at the left of the address bar (a lock, tune, or camera icon).
+      </Step>
+      <Step title="Set Camera to Allow">
+        Change the camera permission to **Allow**.
+      </Step>
+      <Step title="Reload and try again">
+        Reload the page and go through setup again.
+      </Step>
+    </Steps>
   </Tab>
   <Tab title="Edge">
-    If Edge blocked a permission, a lock or camera icon appears on the left side of the address bar.
-
-    **To re-enable camera or microphone:**
-
-    1. Click the **lock icon** in the address bar.
-    2. In the dropdown, click **Permissions for this site**.
-    3. Find **Camera** or **Microphone** and change the setting to **Allow**.
-    4. Reload the page and work through the setup flow again.
-
-    **To re-enable from Edge settings:**
-
-    1. In the address bar, type `edge://settings/content/camera` and press Enter.
-    2. Under **Block**, find `proctorly.schooltoolz.com`.
-    3. Click the **X** next to the entry to remove the block, reload your exam link, and click **Allow** when prompted.
-
-    **For screen share**, Edge shows the same picker as Chrome. Select your **entire screen** from the screen thumbnail — not a window or tab — and click **Share**.
-
-    <Warning>
-      If you share a window or a browser tab instead of your entire screen, Proctorly may flag this or be unable to continue setup. Choose the screen thumbnail, not a window.
-    </Warning>
+    <Steps>
+      <Step title="Open the site's permissions">
+        Click the icon at the left of the address bar.
+      </Step>
+      <Step title="Set Camera to Allow">
+        Open **Permissions for this site** and set **Camera** to **Allow**.
+      </Step>
+      <Step title="Reload and try again">
+        Reload the page and go through setup again.
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 
-## Frequently asked questions
+<Tip>
+  Make sure no other app (Zoom, Teams, etc.) is using your camera — close those and reload. If you still don't get a prompt, check that your computer lets your browser use the camera.
+</Tip>
 
-**Do I need to install an extension?**
-No. Proctorly uses only the built-in browser camera, microphone, and screen-share APIs. There is nothing to install.
+## The setup screen seems stuck
 
-**Will Proctorly record my audio?**
-No. The microphone permission is used to measure ambient volume only. Proctorly does not record or store audio.
+After you allow access, you'll see **"Loading face detection…"**. On weak Wi-Fi this can take a little while — wait for **"Face detection is ready."** before reloading.
 
-**What if my camera is built into my laptop?**
-Your built-in webcam works fine. If you have multiple cameras connected, Chrome and Edge may ask you to choose one. Select the camera that faces you directly.
+## If your screen sharing stops
 
-**What if the permission prompt never appears?**
-This can happen if your operating system has blocked browser camera access. On Windows, go to **Settings → Privacy & security → Camera** and make sure Chrome or Edge is allowed. On macOS, go to **System Settings → Privacy & Security → Camera** and enable the browser you are using.
+If sharing stops during the test, share your **entire screen** again to keep going.
+
+<Info>
+  Still stuck right before your test? **Ask your teacher.** Proctorly support can't see or change your test.
+</Info>

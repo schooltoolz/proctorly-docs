@@ -1,0 +1,89 @@
+---
+title: "Scheduling & sharing"
+sidebarTitle: "Scheduling & sharing"
+description: "Set open and close times, understand a test's status, share the student link, control what students see after they submit, and archive or delete a test."
+---
+
+Once a test exists, the **Settings** screen controls when students can take it, how they reach it, and what they see before and after the exam. This page covers scheduling, the share link, the student experience, and the danger zone.
+
+## Test status
+
+A test's status is **derived** from whether it's still a draft and from its schedule — you don't set it directly.
+
+| Status | Meaning |
+|---|---|
+| `draft` | Not yet published; students can't start. |
+| `scheduled` | Published, but the open time is in the future. |
+| `open` | Live and accepting students (now is within the window, or no window is set). |
+| `closed` | Past the close time. |
+| `archived` | Retired by the teacher; no new sessions. |
+
+## Schedule
+
+You can bound when students may start with an **opens at** and a **closes at** time. Outside that window, students don't see the exam — they see one of these messages instead:
+
+<CodeGroup>
+```text Before it opens
+This exam is not available yet. It opens at {time}.
+```
+
+```text After it closes
+This exam is now closed. It closed at {time}.
+```
+</CodeGroup>
+
+If you've archived the test, students see an archived notice instead (for example, *"This test has been archived by your teacher…"*).
+
+<Tip>
+  If you don't set a window, a published test is simply **open** and accepting students.
+</Tip>
+
+## Access — the student link
+
+Each test has a single student-facing **share link** (its `secure_token` URL). It looks like:
+
+```text
+https://www.proctorly.co/t/<link>
+```
+
+Share this one link with your class — by email, your LMS, or a class message. **Students don't need a Proctorly account**, and they don't log in. They open the link, enter their name and email on the consent screen, and go through setup. The same link works for everyone you share it with.
+
+<Note>
+  There's no separate per-student login or password. Identity is collected once on the consent screen (students can also use **Sign in with Google / Microsoft** to auto-fill their name and mark identity as "Verified" — this confirms who they are but does **not** create a Proctorly account).
+</Note>
+
+## Student experience
+
+This part of Settings is introduced with:
+
+> "Control what students see before they start and after they submit."
+
+### Student instructions
+
+A free-text field (up to **2000 characters**) shown on the **setup** screen, before the exam begins. Use it for anything students should know going in — for example:
+
+> *"You may use a calculator. Keep your camera on throughout the test."*
+
+### Completion behavior
+
+What a student sees **after** they submit. Choose one:
+
+<Tabs>
+  <Tab title="Default confirmation">
+    The standard message — *"Your test has been submitted."*
+  </Tab>
+  <Tab title="Custom message">
+    Your own wording — next steps, where to go, what to do now.
+  </Tab>
+  <Tab title="Redirect to URL">
+    Send the student to an external page after they submit.
+  </Tab>
+</Tabs>
+
+## Danger zone
+
+The danger zone holds the **archive** and **delete** actions for a test.
+
+<Warning>
+  **Archiving stops new sessions.** Once a test is archived, students who open the link see the archived notice and can't start. Archiving is how you retire a test without deleting it.
+</Warning>

@@ -1,70 +1,60 @@
 ---
-title: "Creating a proctored test in Proctorly step by step"
-sidebarTitle: "Creating a test"
-description: "Set up a new proctored exam in under two minutes by linking a Google Form or uploading a PDF, Excel, or Word file up to 10 MB in size."
+title: "Building a test"
+sidebarTitle: "Building a test"
+description: "Create a proctored test by choosing a content source — a Google Form, PDF, or Word document — and setting a name, duration, and color."
 ---
 
-Every proctored exam in Proctorly starts with a test. Creating one takes under two minutes: give the test a title, point Proctorly at your exam content, and click **Create test**. Proctorly generates a unique secure token for the test, and the student access URL — `proctorly.schooltoolz.com/t/<token>` — is ready to share immediately.
+Every proctored exam in Proctorly starts as a **test**. Creating one is short: you pick where the exam content comes from, give the test a name, and set a duration and a color. Once it's created, you configure what Proctorly watches for and share the student link.
 
 <Steps>
-  <Step title="Open the new test form">
-    Sign in at [proctorly.schooltoolz.com](https://proctorly.schooltoolz.com) and click **New test** from your dashboard or the **Tests** page.
+  <Step title="Start a new test">
+    From your dashboard or the **Tests** list, start a new test.
   </Step>
 
-  <Step title="Enter a test title">
-    Type a descriptive title such as `Midterm Exam — Spring 2026`. The title appears in your dashboard, in the live monitoring view, and in the student invitation email.
-  </Step>
-
-  <Step title="Choose your exam source">
-    Select either **Google Forms URL** or **Upload file** using the toggle at the top of the form.
+  <Step title="Choose a content source">
+    A test is backed by one of three content sources:
 
     <Tabs>
-      <Tab title="Google Forms URL">
-        Paste the full URL of your Google Form. The URL must contain `docs.google.com/forms` — for example:
-
-        ```text
-        https://docs.google.com/forms/d/1AbCdEfGhIjKlMnOpQrStUvWx/viewform
-        ```
-
-        Proctorly embeds the form inside the student's proctored session. Students submit answers directly through Google Forms while Proctorly monitors their browser in the background.
+      <Tab title="Google Form">
+        Paste the link to your Google Form. This is the **primary, best-supported source** — Proctorly embeds the form inside the monitored session so students answer without leaving the proctored window.
       </Tab>
-      <Tab title="Upload file">
-        Click the upload area or drag and drop a file. Accepted formats:
-
-        | Format | Extension | Notes |
-        |--------|-----------|-------|
-        | PDF | `.pdf` | Displayed as a read-only document |
-        | Excel | `.xlsx` | Rendered as an HTML table |
-        | Word | `.docx` | Rendered as formatted HTML |
-
-        Maximum file size is **10 MB**.
+      <Tab title="PDF">
+        Upload a PDF document to use as the exam content.
+      </Tab>
+      <Tab title="Word document">
+        Upload a Word (`.docx`) document to use as the exam content.
       </Tab>
     </Tabs>
+
+    <Info>
+      **Reviewer TODO.** Google Forms is the well-documented path. For **PDF and Word** uploads, the exact student experience — how a student reads and answers a file-based exam, and how they submit it — should be verified with the product team before documenting it in detail. The same applies to any spreadsheet upload option.
+    </Info>
+  </Step>
+
+  <Step title="Name the test, set a duration and color">
+    Give the test a name students will recognize, set the **duration** (how long the exam runs), and pick a **color** used for the test's card in your dashboard.
   </Step>
 
   <Step title="Create the test">
-    Click **Create test**. Proctorly returns a shareable link — for example:
-
-    ```text
-    https://proctorly.schooltoolz.com/t/a1b2c3d4e5f6
-    ```
-
-    Click **Copy link** to copy it to your clipboard. You can share this link directly, or use Proctorly's built-in invitation flow to send personalized links to each student by email.
+    Create the test. Proctorly generates a unique student link for it. You can now configure monitoring and sharing before students start.
   </Step>
 </Steps>
 
-## Plan limits
+## Plan limits apply
 
-The number of tests you can create per month and the number of students allowed per test depends on your plan.
+How many tests you can run per month, and how many students each test allows, depends on your plan. The **Free** tier has trial caps; **Classroom** and **School** remove them. See [Plans](/billing/plans).
 
-| Plan | Tests per month | Students per test | Report retention |
-|------|----------------|-------------------|-----------------|
-| Free | 2 | 15 | 7 days |
-| Classroom | Unlimited | 30 | 90 days |
-| School | Unlimited | Unlimited | Unlimited |
+<Warning>
+  **Reviewer TODO.** The exact Free-tier caps (tests per month, students per test) are **not confirmed** in the product. Don't state specific numbers until the Proctorly team provides them.
+</Warning>
 
-<Note>
-  School plan includes up to 5 teacher seats. Upgrade your plan from the **Billing** page.
-</Note>
+## Next steps
 
-If you reach your monthly test limit or your per-test student cap, Proctorly shows an error when you try to proceed.
+<CardGroup cols={2}>
+  <Card title="Configure monitoring" icon="eye" href="/teachers/configuring-monitoring">
+    Choose what Proctorly watches for during the test.
+  </Card>
+  <Card title="Schedule & share" icon="calendar" href="/teachers/scheduling-and-sharing">
+    Set open/close times, share the student link, and control the completion experience.
+  </Card>
+</CardGroup>

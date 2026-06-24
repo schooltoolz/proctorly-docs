@@ -1,0 +1,89 @@
+---
+title: "Configuring monitoring"
+sidebarTitle: "Configuring monitoring"
+description: "Every monitoring option a test can turn on or off — what each one catches, when to use it, and how it shapes the student experience."
+---
+
+A test's **Settings** screen is where you decide what Proctorly watches for. The monitoring section is introduced with:
+
+> "Choose what Proctorly watches for during the test."
+
+The options are grouped the same way the screen groups them. Each one changes what gets flagged during the exam — and some change what students see while they work.
+
+## Identity & presence
+
+<CardGroup cols={2}>
+  <Card title="Face detection" icon="scan-face">
+    *"Flag when no face is visible in the webcam."*
+  </Card>
+  <Card title="Multiple faces" icon="users">
+    *"Flag when more than one person is visible."* This is bundled with **Face detection**.
+  </Card>
+</CardGroup>
+
+## Test focus
+
+<CardGroup cols={2}>
+  <Card title="Tab switching" icon="layout-panel-top">
+    *"Flag when the student leaves the exam tab or switches windows."*
+  </Card>
+  <Card title="Full screen required" icon="maximize">
+    *"Require students to stay in full-screen mode throughout the test."*
+  </Card>
+  <Card title="Desktop only" icon="laptop">
+    *"Prevent students from starting the test on a mobile device."*
+  </Card>
+</CardGroup>
+
+<Note>
+  **Desktop only is off by default.** When it's off, a student on a phone or tablet *can* start the test. Turn it on to block mobile devices at the entry screen before a student can begin. See [Devices & browsers](/troubleshooting) for why this matters — for example, iPhones and iPads can't share their screen at all.
+</Note>
+
+## Environment
+
+<CardGroup cols={2}>
+  <Card title="Audio flags" icon="mic">
+    *"Flag loud background noise or suspicious audio events."*
+  </Card>
+  <Card title="Random photos" icon="camera">
+    *"Capture a few random snapshots during the test for post-review."*
+  </Card>
+</CardGroup>
+
+## Session control
+
+<CardGroup cols={2}>
+  <Card title="Waiting room" icon="door-closed">
+    *"Hold students after setup until you admit them from the live monitor."* When this is on, students wait after setup until you let them in. See [Live monitoring](/teachers/live-monitoring).
+  </Card>
+  <Card title="Student alerts" icon="triangle-alert">
+    *"Show on-screen warnings when violations are detected — for example, 'Return to full screen'."*
+  </Card>
+</CardGroup>
+
+## How monitoring maps to flags
+
+Each monitoring option corresponds to one or more integrity **flags** that appear in the report afterward. The full glossary lives in [Reviewing results](/teachers/reviewing-reports#flag-types), but in short:
+
+| Monitoring option | Flags it can produce |
+|---|---|
+| Face detection | `face_not_detected` |
+| Multiple faces | `multiple_faces` |
+| Tab switching | `tab_switch` |
+| Full screen required | `fullscreen_exit` |
+| Audio flags | `audio_detected` |
+
+<Info>
+  Screen sharing also produces a `screen_share_stopped` flag when sharing is interrupted, and additional displays can produce `multiple_monitors`. These relate to the screen-share requirement covered in [Scheduling & sharing](/teachers/scheduling-and-sharing) and the student [setup flow](/students/taking-an-exam).
+</Info>
+
+## A note on what students experience
+
+Turning these on doesn't only change your report — it changes the exam:
+
+- **Full screen required** keeps students in full-screen mode for the whole test.
+- **Student alerts** surfaces on-screen warnings to the student (like *"Return to full screen"*) as violations happen.
+- **Waiting room** holds students after setup until you admit them.
+- **Desktop only** blocks mobile devices before a student can start.
+
+If you adjust monitoring for an individual student rather than the whole class, see [Accommodations](/teachers/accommodations).

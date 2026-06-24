@@ -1,103 +1,52 @@
 ---
-title: "Fix camera and screen share permission errors"
-sidebarTitle: "Camera and permissions"
-description: "Step-by-step instructions for unblocking camera and screen share access in Chrome and Edge, plus fixes for MediaPipe load failures and wrong camera selection."
+title: "Camera and permissions"
+sidebarTitle: "Camera & permissions"
+description: "Fix a blocked camera, share your entire screen correctly, and handle slow face-detection loading before an exam."
 ---
 
-Camera and screen share permission errors are the most common reason students cannot start an exam. Browsers block these permissions by default or after a user accidentally clicks **Block**. You need to explicitly allow both permissions for Proctorly before the exam setup flow can complete.
+Camera and screen-share permissions are the most common reason a student can't start. Here's how to fix each one.
 
-<Warning>
-  After granting camera or screen share permissions in your browser settings, you must refresh the Proctorly page. The permission change does not take effect in the current tab until you reload.
-</Warning>
+## Camera is blocked
 
-## Unblock camera and screen share
-
-<Tabs>
-  <Tab title="Chrome">
-    <Steps>
-      <Step title="Open the permissions panel">
-        Click the lock icon (or the camera icon with a red X) in the address bar, to the left of the URL. A small panel opens showing the current permission state.
-      </Step>
-      <Step title="Allow Camera">
-        Find the **Camera** row. If it shows **Blocked**, click the dropdown and select **Allow**.
-      </Step>
-      <Step title="Allow your display">
-        Find the **Screen recording** or **Window management** row and set it to **Allow** if it appears. Some Chrome versions do not show screen share in this panel — you will be prompted during the setup flow instead.
-      </Step>
-      <Step title="Reload the page">
-        Click **Reload** in the prompt that appears, or press **F5**. Proctorly will re-run the permission checks.
-      </Step>
-      <Step title="Accept the screen share prompt">
-        When the setup flow reaches the screen share step, Chrome will open a system dialog. Select the window or screen you want to share and click **Share**.
-      </Step>
-    </Steps>
-
-    <Tip>
-      If the lock icon is not visible, click directly on the URL bar and then click the icon that appears at the left side of the bar.
-    </Tip>
-  </Tab>
-  <Tab title="Edge">
-    <Steps>
-      <Step title="Open site permissions">
-        Click the lock icon at the left of the address bar. In the panel that opens, click **Permissions for this site**.
-      </Step>
-      <Step title="Allow Camera">
-        Find **Camera** in the permissions list. Click the dropdown and change it from **Block** to **Allow**.
-      </Step>
-      <Step title="Allow Microphone (if required)">
-        If your teacher has enabled audio detection, find **Microphone** and set it to **Allow** as well.
-      </Step>
-      <Step title="Reload the page">
-        Edge will prompt you to reload the page for changes to take effect. Click **Reload** or press **F5**.
-      </Step>
-      <Step title="Accept the screen share prompt">
-        When the setup flow reaches the screen share step, select your screen or window in the dialog that appears and click **Allow**.
-      </Step>
-    </Steps>
-
-    <Tip>
-      If you previously set the permission to **Block** and the lock icon does not show a camera indicator, go to **Settings → Cookies and site permissions → Camera** and remove proctorly.schooltoolz.com from the blocked list.
-    </Tip>
-  </Tab>
-</Tabs>
-
-## Camera works elsewhere but not in Proctorly
-
-If your camera works in video calls or other websites but shows a black screen or error in Proctorly, the browser may have the right permission but the wrong camera selected.
+If your camera is blocked, allow it and reload:
 
 <Steps>
-  <Step title="Open camera settings in the setup flow">
-    On the camera check screen, click the **Settings** or gear icon below the preview.
+  <Step title="Open the site's permissions">
+    Click the icon at the left of the address bar (a lock, tune, or camera icon).
   </Step>
-  <Step title="Select your camera from the dropdown">
-    Choose the correct camera from the list. Laptops often have both a built-in webcam and a virtual camera (from Zoom, Teams, or OBS). Select the physical webcam, not a virtual device.
+  <Step title="Set Camera to Allow">
+    Change the camera permission to **Allow**.
   </Step>
-  <Step title="Confirm the preview shows your face">
-    The live preview should update immediately. If it still shows black, try selecting a different device from the list.
+  <Step title="Reload and try again">
+    Reload the page and work through setup again.
   </Step>
 </Steps>
 
-<Note>
-  If no camera appears in the dropdown at all, check that no other application has the camera open and locked. Closing video conferencing apps and reloading the page usually resolves this.
-</Note>
+<Tip>
+  Make sure no other app (Zoom, Teams, etc.) is using the camera. Close those, then reload.
+</Tip>
 
-## MediaPipe face detection fails to load
+## "Share your entire screen" keeps appearing
 
-Proctorly uses the MediaPipe face detection model to monitor for face presence during the exam. If the model fails to load, you will see an error like "Face detection could not be initialized" during setup.
+When prompted, choose your **whole screen or monitor** — not a window and not a browser tab. If you pick a window or tab, you'll see:
 
-This is usually a network connectivity issue — the model files are served from a CDN and may be blocked by a school firewall, a VPN, or an ad blocker.
+> *"You must share your entire screen, not a window or browser tab…"*
 
-**Steps to resolve:**
+Pick the entire screen and continue.
 
-1. Disable any browser extensions that block scripts or trackers, then reload the page.
-2. Disconnect from a VPN if you are using one, then reload.
-3. If you are on a school network, ask your IT department to allowlist the following CDN domain: `cdn.jsdelivr.net`.
-4. Try switching to a mobile hotspot to confirm the issue is network-related.
+## Face detection won't load or is stuck
 
-If the model still fails to load after these steps, contact your teacher. Depending on your situation, a camera exemption accommodation may be appropriate.
+The test loads a face-detection tool, which can be slow on weak Wi-Fi.
 
-## Firefox warning
+- Check your internet connection.
+- Wait for **"Face detection is ready."** before reloading — give it a moment on a slow connection.
+
+## Screen sharing stopped
+
+If your screen sharing stops during the test, share your **entire screen** again to continue.
+
+## On a phone, tablet, or iPhone/iPad
 
 <Warning>
-  Firefox has limited support for the screen share APIs that Proctorly requires. Screen sharing may not work correctly, and some monitoring features will be unavailable. Use Google Chrome or Microsoft Edge for a fully supported experience.
+  If your test uses screen monitoring, **iPhones and iPads won't work** — Apple blocks screen sharing in every iOS browser. And if your teacher set the test to **desktop only**, no phone or tablet can start it. Use a **laptop or desktop with Chrome or Edge**.
 </Warning>

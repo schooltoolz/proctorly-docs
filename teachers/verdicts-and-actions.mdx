@@ -1,75 +1,51 @@
 ---
-title: "Recording verdicts and communicating about sessions"
-sidebarTitle: "Verdicts and actions"
-description: "Mark sessions as Clear, Flag for Review, or Escalate — individually or in bulk — and generate AI-drafted emails for admin or parent communication."
+title: "Verdicts & actions"
+sidebarTitle: "Verdicts & actions"
+description: "Confirm or dismiss individual flags, set a session verdict of Clear or Escalate, and clear sessions in bulk."
 ---
 
-After reviewing a student's flags and integrity score, you record your verdict for that session. Verdicts let you document your decision, track which sessions still need attention, and communicate clearly with other stakeholders. Every session starts with a **Pending** status until you set a verdict.
+After reviewing a session's flags and integrity score, you record your decisions. Proctorly has two levels of decision: **per-flag** (confirm or dismiss each event) and **per-session** (a verdict that can override the whole score).
 
-## The three verdicts
+## Per-flag decisions
 
-<CardGroup cols={3}>
-  <Card title="Clear" icon="circle-check">
-    The session shows no meaningful integrity concerns. A Clear verdict overrides the integrity score — the session receives a score of 100 regardless of any flags recorded.
+For each flag in a session, you choose:
+
+<CardGroup cols={2}>
+  <Card title="Confirm" icon="check">
+    You consider the flag genuine. It counts at **full weight** toward the integrity score.
   </Card>
-  <Card title="Flag for Review" icon="flag">
-    The session has activity that warrants a closer look but does not yet rise to escalation. Use this to mark sessions for a second pass or a discussion with a colleague.
-  </Card>
-  <Card title="Escalate" icon="triangle-alert">
-    The session has evidence of a serious integrity issue. Escalation is your formal record that this session requires further action.
+  <Card title="Dismiss" icon="x">
+    You consider the flag a false positive or not worth counting. It **stops counting** toward the score.
   </Card>
 </CardGroup>
 
-## Setting a verdict
+A flag you haven't decided on yet counts at a **reduced weight** — so leaving everything undecided isn't the same as dismissing it. Proctorly can auto-suggest decisions based on confidence (see [Reviewing results](/teachers/reviewing-reports#decisions-confirm-or-dismiss)).
 
-The verdict bar appears below every session row header in the report. You do not need to expand the full session detail to set a verdict.
+## Session verdict
 
-<Steps>
-  <Step title="Click a verdict button">
-    Click **Clear**, **Flag for Review**, or **Escalate** on the session's verdict bar. The selected verdict is highlighted immediately.
-  </Step>
-  <Step title="Add an optional note">
-    Type a note in the text area below the verdict buttons. Notes must be 280 characters or fewer. Notes are saved with the verdict and are visible to any teacher with access to the report.
-  </Step>
-  <Step title="Verdict saves automatically">
-    Clicking a verdict button saves it immediately — there is no separate save step. The verdict badge in the session list row updates in place.
-  </Step>
-</Steps>
+A verdict applies to the **whole session** and overrides the per-flag math:
 
-## Bulk verdict: mark all low-risk sessions as Clear
-
-When you have many sessions to review, the bulk verdict control at the top of the sessions list lets you clear low-risk sessions all at once.
-
-<Steps>
-  <Step title="Select all low-risk sessions">
-    Check **Select all Low risk**. The number of qualifying sessions appears in parentheses. This option only appears when at least one session has a Low risk level and no verdict set.
-  </Step>
-  <Step title="Apply the bulk verdict">
-    Click **Mark all as Clear**. Proctorly applies a Clear verdict to every selected session in a single operation.
-  </Step>
-</Steps>
+<CardGroup cols={2}>
+  <Card title="Clear" icon="circle-check">
+    Forces the integrity score to **100**, regardless of any flags.
+  </Card>
+  <Card title="Escalate" icon="triangle-alert">
+    Treats **every** flag — even undecided ones — at full weight.
+  </Card>
+</CardGroup>
 
 <Info>
-  Bulk verdict applies only to sessions with a Low risk level. Medium and High risk sessions are not affected.
+  These are the **only two verdicts**. Use **Clear** when a session is fine despite some flags, and **Escalate** when it needs to be treated as a serious case.
 </Info>
 
-## AI-drafted email templates
+## Clearing sessions in bulk
 
-For sessions with flags, Proctorly can draft ready-to-edit email templates using Claude Haiku — one addressed to your school admin and one for the student's parent or guardian.
+When many sessions are clearly fine, you can clear a set of them at once rather than opening each one. This applies the **Clear** verdict across the selected sessions in a single action.
 
-Click **Generate email drafts** in the expanded session view. Both drafts appear in editable text areas.
+<Info>
+  **Reviewer TODO.** The exact in-app control for bulk-clearing (its label, and how sessions are selected — for example by risk level) should be confirmed with the product team before documenting the precise steps.
+</Info>
 
-<Tabs>
-  <Tab title="Admin email">
-    Formal and factual. Lists each flag type with its timestamp. Refers the reader to the Proctorly dashboard for full data. Uses professional, neutral language and draws no conclusions.
-  </Tab>
-  <Tab title="Parent email">
-    Warm and non-accusatory. Avoids technical proctoring language. Refers to "some activity we'd like to discuss" rather than using words like "cheating" or "violation." Invites a conversation.
-  </Tab>
-</Tabs>
+## A note on tone
 
-Edit the text directly in the text area before copying. Click **Copy** next to either draft to copy it to your clipboard, or click **Regenerate** to request a fresh draft.
-
-<Note>
-  Email drafts are only available for sessions that have at least one flag. Sessions with no flags do not show the email draft panel.
-</Note>
+Flags are detections, not conclusions. The integrity score and verdicts are tools for **your** judgment — Proctorly records what it observed and leaves the determination to you. Any AI-written summary is assistive only; see [Reviewing results](/teachers/reviewing-reports#ai-summaries).
