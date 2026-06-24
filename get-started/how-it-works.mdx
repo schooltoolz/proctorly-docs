@@ -1,0 +1,70 @@
+---
+title: "How Proctorly detects and flags exam integrity issues"
+sidebarTitle: "How it works"
+description: "Learn how Proctorly's browser-based monitoring detects face absence, tab switching, audio, and screen activity — with no extension required."
+---
+
+Proctorly monitors exam sessions entirely through standard browser APIs. There is no browser extension to install and no native application to download. When a student grants camera and screen-share permissions during the setup flow, four detection systems start running in the background for the duration of the exam.
+
+## How the student experience works
+
+Students open the unique exam URL you share and go through a one-time guided setup:
+
+1. They enter their name and email, read the monitoring disclosure, and agree to proceed.
+2. They grant **camera and microphone** access in the browser permission dialog.
+3. They share their **entire screen** — not a single window or tab — using the browser's native screen share prompt.
+4. They enter fullscreen and the exam begins.
+
+No account creation is required. The setup wizard walks students through each permission step with clear error messages and retry prompts if something goes wrong.
+
+## How the teacher experience works
+
+Teachers create tests, share the link, and review results afterward:
+
+1. **Create** — set up a test with a Google Forms URL or file upload. Optionally set a time limit and enable identity verification.
+2. **Share** — copy the unique token URL and send it to students through any channel.
+3. **Monitor** — view active sessions and live webcam snapshots from the dashboard while the exam runs.
+4. **Review** — after the exam, open the integrity report to see per-student flag timelines, snapshots, AI summaries, and verdict controls.
+
+## Detection systems
+
+<CardGroup cols={2}>
+  <Card title="Face detection" icon="scan-face">
+    Analyzes the webcam feed every 30 seconds using on-device face detection running entirely in the browser — no images are sent to a server for processing. Raises a flag when no face is detected and a separate flag when two or more faces appear in frame.
+  </Card>
+  <Card title="Tab and focus detection" icon="layout-panel-top">
+    Listens to browser visibility and focus events. If the student leaves the exam tab or switches windows for more than 5 seconds, a tab-switch flag is raised with the duration and timestamp recorded.
+  </Card>
+  <Card title="Audio detection" icon="mic">
+    Samples the microphone for ambient sound. Sustained audio above the detection threshold triggers an audio flag with the timestamp and duration recorded. Audio is not recorded or stored — only volume level is measured.
+  </Card>
+  <Card title="Screen share monitoring" icon="monitor">
+    Requires students to share their entire screen through the browser's built-in screen share prompt. If the student stops sharing mid-exam, a flag fires immediately. Multiple connected monitors are also detected and recorded.
+  </Card>
+</CardGroup>
+
+## How snapshots work
+
+Proctorly captures webcam and screen snapshots in two situations:
+
+- **Automatic** — one snapshot every 3 minutes throughout the session, regardless of flags.
+- **On flag** — an immediate snapshot of both the webcam feed and the screen whenever a detector raises a flag.
+
+Snapshots are visible to you in the integrity report alongside the event that triggered them.
+
+## What you see in the integrity report
+
+Each student session in the report shows:
+
+- A **chronological flag timeline** listing every detected event with its timestamp, type, and confidence score.
+- **Webcam and screen snapshots** linked to each flag event.
+- An **AI-generated integrity summary** written by Claude Haiku, synthesizing all flags into a plain-language explanation.
+- **Verdict controls** to set each session to **Clear**, **Flag for Review**, or **Escalate**.
+
+<Info>
+  All monitoring capabilities — webcam access, screen sharing, audio sampling, face detection — use browser APIs available in modern desktop browsers. Students only need to grant the permissions requested during setup.
+</Info>
+
+<Warning>
+  Screen sharing is not supported on iOS. Students on an iPhone or iPad cannot complete the screen-share setup step. Recommend that all students use a desktop or laptop browser.
+</Warning>

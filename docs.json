@@ -1,0 +1,106 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Proctorly Help Center",
+  "description": "Documentation and guides for Proctorly — AI-powered online exam proctoring for educators.",
+  "colors": {
+    "primary": "#4F46E5",
+    "light": "#818CF8",
+    "dark": "#312E81"
+  },
+  "favicon": "/favicon.ico",
+  "icons": {
+    "library": "lucide"
+  },
+  "styling": {
+    "eyebrows": "breadcrumbs"
+  },
+  "contextual": {
+    "options": ["copy", "view", "assistant", "mcp", "add-mcp"]
+  },
+  "navigation": {
+    "directory": "card",
+    "products": [
+      {
+        "product": "Help Center",
+        "description": "Setup guides, exam creation, live monitoring, reports, and billing.",
+        "icon": "life-buoy",
+        "groups": [
+          {
+            "group": "Get Started",
+            "icon": "rocket",
+            "expanded": true,
+            "root": "get-started/index",
+            "pages": [
+              "get-started/quickstart",
+              "get-started/how-it-works"
+            ]
+          },
+          {
+            "group": "For Teachers",
+            "icon": "graduation-cap",
+            "expanded": true,
+            "root": "teachers/index",
+            "pages": [
+              "teachers/creating-a-test",
+              "teachers/inviting-students",
+              "teachers/live-monitoring",
+              "teachers/reviewing-reports",
+              "teachers/verdicts-and-actions",
+              "teachers/alert-preferences",
+              "teachers/accommodations"
+            ]
+          },
+          {
+            "group": "For Students",
+            "icon": "user",
+            "expanded": true,
+            "root": "students/index",
+            "pages": [
+              "students/taking-an-exam",
+              "students/browser-permissions",
+              "students/id-verification"
+            ]
+          },
+          {
+            "group": "Plans & Billing",
+            "icon": "credit-card",
+            "root": "billing/index",
+            "pages": [
+              "billing/plans",
+              "billing/credits",
+              "billing/faq"
+            ]
+          },
+          {
+            "group": "Troubleshooting",
+            "icon": "wrench",
+            "root": "troubleshooting/index",
+            "pages": [
+              "troubleshooting/camera-and-permissions",
+              "troubleshooting/exam-access",
+              "troubleshooting/monitoring-flags"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Get support",
+        "href": "mailto:support@proctorly.schooltoolz.com"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Dashboard",
+      "href": "https://proctorly.schooltoolz.com"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+---
+title: "Setting per-student exam accommodations in Proctorly"
+sidebarTitle: "Accommodations"
+description: "Grant camera exemptions, override monitoring sensitivity, and add private notes for students who need adjusted proctoring conditions."
+---
+
+Accommodations let you adjust how Proctorly monitors specific students without changing the settings for your whole class. They are stored per student email address and apply automatically whenever that student joins any of your tests. Common uses include exempting a student from the webcam requirement due to a disability, or lowering flag sensitivity for a student who uses assistive technology or has attention difficulties.
+
+## Where to add accommodations
+
+Accommodations are managed from the test settings page. Open the test you want to configure, scroll to the **Accommodations** section, and click **Add accommodation**. To edit an existing accommodation, click the student's entry in the list.
+
+<Note>
+  Accommodations are scoped to your teacher account, not to a single test. An accommodation you add for a student's email address applies to every test you create — past and future.
+</Note>
+
+## Camera exemption (`camera_exempt`)
+
+Toggle **Camera exempt** on to allow a student to complete the exam without a webcam. When this accommodation is active:
+
+- The student bypasses the webcam setup and permission check at session start
+- No webcam snapshots are taken during their session
+- `face_not_detected` and `multiple_faces` flags are suppressed for that session
+- The student's integrity score is calculated from the remaining flag types only
+
+<Warning>
+  Camera-exempt sessions will not have a webcam snapshot gallery in the post-exam report. Document the reason for the exemption in the notes field for your records.
+</Warning>
+
+**Example use cases:**
+
+- A student has a broken or unavailable webcam confirmed by IT
+- A student has a documented medical condition that prevents reliable face detection
+- A student is in an environment where a webcam cannot be used safely
+
+## Sensitivity override
+
+The **Sensitivity** field sets the monitoring profile for this specific student, overriding the standard profile that applies to the rest of the class.
+
+| Value | Tab switch threshold | No-face threshold | Typical use |
+|-------|---------------------|------------------|-------------|
+| Standard | Every switch | 5 seconds | Default — no override |
+| Support level 1 | Every 2nd switch | 10 seconds | Mild accommodation |
+| Support level 2 | Every 3rd switch | 15 seconds | Stronger accommodation |
+
+A sensitivity override does not suppress always-reviewed events. Flags such as `multiple_faces` and `audio_detected` are always recorded regardless of the profile applied.
+
+**Example use cases:**
+
+- A student uses a screen reader and navigates between tabs as part of their assistive workflow
+- A student has an extended-time accommodation and takes breaks that move them out of frame
+- A student with attention difficulties may look away from the screen more frequently than average
+
+## Notes
+
+The **Notes** field is a free-text area for recording why you created the accommodation. Notes are private — only you can see them. They do not affect monitoring behavior and exist solely for your reference and audit purposes.
+
+## Adding an accommodation
+
+<Steps>
+  <Step title="Open the Accommodations section">
+    Navigate to your test's settings page and scroll to the **Accommodations** section.
+  </Step>
+  <Step title="Enter the student's email address">
+    Type the exact email address the student uses to access their personalized link. The address is normalized to lowercase, so `Student@School.edu` and `student@school.edu` are treated as the same.
+  </Step>
+  <Step title="Configure the accommodation fields">
+    Toggle **Camera exempt** if needed, select a **Sensitivity** level to override the default, and add a note explaining the reason for the accommodation.
+  </Step>
+  <Step title="Save">
+    Click **Save accommodation**. The setting takes effect the next time that student joins a session. It does not retroactively change sessions already in progress.
+  </Step>
+</Steps>

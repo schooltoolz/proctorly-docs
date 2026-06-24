@@ -1,0 +1,61 @@
+---
+title: "Monitoring active student exam sessions in real time"
+sidebarTitle: "Live monitoring"
+description: "Use the live dashboard to watch every session, see flag counts and risk levels, send messages to students, manage pause requests, and apply mass controls."
+---
+
+The live monitoring dashboard gives you a real-time view of every student session while the exam is in progress. Open it from the test detail page by clicking **Live monitor**. The dashboard updates automatically — you do not need to refresh. Each session row shows the student's name, current flag count, and a color-coded risk level: green for Low, amber for Medium, and red for High.
+
+## What you see
+
+Sessions are listed in the active sessions table. Each row shows:
+
+- Student name
+- Number of flags raised so far
+- Risk level (Low / Medium / High) with color coding
+- Time elapsed
+- Any pending pause requests
+
+A summary bar at the top shows the total count of active sessions at a glance.
+
+## Broadcasting messages to students
+
+You can send a text message to one student or all active students directly from the live dashboard. Messages are delivered as a banner notification inside the student's exam window.
+
+<Steps>
+  <Step title="Open the message panel">
+    Click **Broadcast** in the dashboard toolbar to open the message panel. To message a single student, click the message icon on their session row instead.
+  </Step>
+  <Step title="Write your message">
+    Type your message in the text field. Messages must be between **1 and 280 characters**. A character counter is displayed below the field.
+  </Step>
+  <Step title="Send">
+    Click **Send to all** to broadcast to every active session, or **Send** to deliver to the selected student. The message appears immediately in the student's exam window.
+  </Step>
+</Steps>
+
+## Approving and rejecting pause requests
+
+When a student clicks the pause button, a notification appears on your dashboard. The notification shows the student's name, their optional pause note, and the time elapsed since they requested the pause.
+
+Click **Approve** to pause the student's session. Click **Reject** to dismiss the request and let their timer continue. Once approved, click **Resume** on the student's row to end the pause and return them to active status.
+
+## Mass controls
+
+The mass controls bar at the top of the dashboard applies an action to all active sessions at once. Use these when you need to address the whole class simultaneously.
+
+<CardGroup cols={3}>
+  <Card title="Mass screenshot" icon="camera">
+    Captures a webcam snapshot from every active session immediately. Snapshots appear in each student's session gallery in the post-exam report.
+  </Card>
+  <Card title="Mass pause / resume" icon="pause">
+    Pauses all active sessions at once, stopping every student's timer. Click again to resume everyone. A confirmation prompt appears before either action.
+  </Card>
+  <Card title="Mass lock / unlock" icon="lock">
+    Locks all screens, preventing students from interacting with their exam. Use this if you need to address the class without students continuing. A confirmation prompt appears before locking.
+  </Card>
+</CardGroup>
+
+<Warning>
+  Mass pause and mass lock affect every active session for the test. Students see a notification on their screen when these actions are applied. Use them deliberately.
+</Warning>

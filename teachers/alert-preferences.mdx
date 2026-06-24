@@ -1,0 +1,49 @@
+---
+title: "Configuring live monitoring alert preferences in Proctorly"
+sidebarTitle: "Alert preferences"
+description: "Control which flag types trigger live alerts during exams and set sensitivity to reduce noise without missing genuine integrity concerns."
+---
+
+Proctorly can surface alert cards on the live monitoring dashboard when a student shows a pattern that may need your attention. You control which flag types trigger alerts and how aggressively the system watches for patterns. These settings apply to all your tests.
+
+To find your alert preferences, go to **Settings → Alerts** in the dashboard navigation.
+
+## Enabling and disabling alerts
+
+The master toggle — **Alerts enabled** — turns the entire alert system on or off. When off, no alert cards appear during live monitoring. When on, Proctorly evaluates each student's session activity and surfaces alerts based on the types and sensitivity you configure below.
+
+<Warning>
+  Disabling alerts means you will not receive real-time notifications for at-risk students during an active exam. All flags are still recorded and visible in the post-exam report regardless of this setting.
+</Warning>
+
+## Per-type alert toggles
+
+When alerts are enabled, you can choose which flag types trigger live alert cards:
+
+| Toggle | What it covers |
+|--------|----------------|
+| **Tab switches** | Student navigates away from the exam tab or window |
+| **Face absence** | No face detected in the webcam feed |
+| **Audio** | Microphone activity detected above the threshold |
+
+Turning off a toggle suppresses the live alert for that flag type. The flag is still recorded in the session and appears in the post-exam report — only the live notification is suppressed.
+
+## Sensitivity
+
+Sensitivity controls how quickly a pattern must accumulate before triggering an alert. A single isolated event — such as one tab switch — does not trigger an alert at any sensitivity level.
+
+<AccordionGroup>
+  <Accordion title="Low — only flag strong, repeated patterns">
+    Proctorly waits for a more significant pattern before surfacing an alert. Use this setting if you find alerts too frequent during normal exam conditions, or if your students legitimately move between windows (for example, in an open-book exam with permitted reference material).
+  </Accordion>
+  <Accordion title="Medium — balanced (recommended)">
+    The default setting. Proctorly uses standard thresholds that work well for most exam types. A missing face flags after 5 seconds; audio flags after detection above the baseline threshold. Start here and adjust based on the noise level you observe in your first few exams.
+  </Accordion>
+  <Accordion title="High — catch patterns earlier">
+    Proctorly surfaces alerts more quickly with lower thresholds before a pattern is considered significant. Use this for high-stakes exams where you want maximum visibility, or when students are expected to remain fully focused on a single browser tab throughout. Expect more alert cards during the exam and dismiss those that turn out to be benign.
+  </Accordion>
+</AccordionGroup>
+
+## Saving your preferences
+
+After making changes, click **Save preferences**. Changes take effect immediately for any exam you open after saving.

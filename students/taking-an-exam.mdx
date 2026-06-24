@@ -1,0 +1,66 @@
+---
+title: "How to take a Proctorly-proctored exam step by step"
+sidebarTitle: "Taking an exam"
+description: "A complete walkthrough of the student exam flow — from opening your unique link to the completion screen, including permissions and optional ID verification."
+---
+
+Taking a proctored exam with Proctorly requires no account and no software installation. Your teacher sends you a unique link that opens directly in your browser. The entire process — setup, exam, and submission — happens in a single browser tab. Chrome or Edge on a desktop or laptop gives you the most reliable experience.
+
+<Warning>
+  Proctorly does not work on iOS (iPhone or iPad). Screen sharing is not available in mobile browsers. Use a desktop or laptop computer.
+</Warning>
+
+<Steps>
+  <Step title="Open your exam link">
+    Click the unique link your teacher sent you. It looks like `proctorly.schooltoolz.com/t/<token>`. Each link is tied to you specifically — do not share it with anyone else.
+
+    <Tip>
+      Use **Chrome** or **Edge** for the best experience. Firefox has limited screen-share API support and may prevent you from completing the setup step.
+    </Tip>
+  </Step>
+
+  <Step title="Enter your name and email">
+    On the exam entry page, type your full name and the email address your teacher used to invite you. Read the monitoring disclosure, then check the consent box to confirm you agree to be monitored during the exam.
+
+    <Note>
+      You do not need to create a Proctorly account. Your name and email are used to identify your session in your teacher's report.
+    </Note>
+  </Step>
+
+  <Step title="Grant camera and screen-share permissions">
+    Proctorly will ask your browser for three permissions:
+
+    - **Camera** — used for webcam monitoring and face detection.
+    - **Microphone** — used for ambient audio detection (read-only; Proctorly does not record your voice).
+    - **Screen share** — you will be prompted to share your **entire screen**, not just a window or tab.
+
+    Click **Allow** for each prompt. If your browser blocks a permission or you accidentally click **Block**, see [Browser permissions](/students/browser-permissions) for how to fix it.
+
+    After you grant permissions, Proctorly loads the MediaPipe face detection model from its CDN. This takes a few seconds on most connections. Wait for the status indicator to turn green before proceeding.
+  </Step>
+
+  <Step title="Take the exam">
+    Once setup is complete, your exam loads in the same tab. Depending on what your teacher configured, you will see either:
+
+    - A **Google Form** embedded in the page, or
+    - A **PDF, Excel, or Word file** rendered directly.
+
+    Work through the exam as you normally would. Proctorly monitors in the background — you will not see interruptions.
+
+    If you need a break, click **Request pause** at the bottom of the screen. Your teacher will receive a notification and can approve or reject the request. You will see the pause state update in real time; do not close the tab while waiting.
+  </Step>
+
+  <Step title="Submit the exam">
+    When you finish, submit the exam using the form's or document's own submit button. Proctorly detects the submission and stops the monitoring session automatically.
+  </Step>
+
+  <Step title="Complete ID verification (if required)">
+    If your teacher has enabled identity verification, a prompt will appear after submission asking you to take a photo of your ID. Hold your ID up to your webcam so the full card is visible within the frame, then click **Capture photo**.
+
+    This step is optional and only appears when your teacher has turned it on. See [ID verification](/students/id-verification) for tips on getting a clear photo.
+  </Step>
+
+  <Step title="Exam complete">
+    You will see a completion screen confirming your session was recorded. You can now close the browser tab. Your teacher will review the session report on their end — you do not need to take any further action.
+  </Step>
+</Steps>

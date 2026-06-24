@@ -1,0 +1,65 @@
+---
+title: "Reviewing post-exam integrity reports in Proctorly"
+sidebarTitle: "Reviewing reports"
+description: "Analyze each student's flag timeline, integrity score, risk level, webcam snapshots, and AI summary — then upload grades and export results."
+---
+
+After students submit, the post-exam report gives you a complete picture of each session. Open it from the **Tests** page by clicking any completed test. The report shows an aggregate view across all sessions at the top, followed by a per-student list you can expand for full detail. Reports are retained according to your plan: 7 days on Free, 90 days on Classroom, and indefinitely on School.
+
+## Integrity score and risk level
+
+Proctorly calculates an **integrity score** from 0–100 for each session based on the flags recorded. A higher score means fewer or lower-severity flags. Each session is also assigned a **risk level** — Low, Medium, or High — which is shown in the session list row and used for bulk verdict actions.
+
+## Flag types
+
+Expand any session row to see the full flag timeline. Each flag entry shows the type, the timestamp, and a detection confidence percentage.
+
+<AccordionGroup>
+  <Accordion title="tab_switch — student left the exam tab">
+    Recorded whenever the student navigates away from the exam browser tab or switches to another window. A single tab switch is logged but does not automatically trigger a live alert — Proctorly watches for a pattern before surfacing an alert card on the live dashboard.
+  </Accordion>
+  <Accordion title="face_not_detected — no face visible in webcam">
+    Recorded when the student's face is absent from the webcam feed for longer than the threshold set by their sensitivity profile (default: 5 seconds). Common causes include looking away from the screen, poor lighting, or the student moving out of frame.
+  </Accordion>
+  <Accordion title="multiple_faces — more than one face detected">
+    Recorded when the webcam detects more than one person in frame. This is one of the highest-weight flags in the integrity score calculation.
+  </Accordion>
+  <Accordion title="audio_detected — ambient sound detected">
+    Recorded when the microphone picks up audio activity above the detection threshold. This may indicate the student is speaking, receiving verbal help, or is in a noisy environment. Audio flags are logged with a confidence percentage.
+  </Accordion>
+</AccordionGroup>
+
+## Webcam snapshot gallery
+
+If the session includes webcam snapshots, they appear in a grid below the flag timeline when you expand a session row. Click any thumbnail to open a full-size view. Snapshots triggered by a flag are highlighted with a colored border.
+
+## AI integrity summary
+
+Each session has an **AI Integrity Report** panel. It is not generated automatically — click **Generate Report** to request one on demand. Proctorly sends the session's flag data to Claude Haiku, which returns:
+
+- A **2–4 sentence plain-English summary** describing what happened during the session, using specific flag counts and timestamps
+- A **trust rating**: High, Medium, or Low
+
+<Note>
+  The AI summary presents facts only — it does not accuse students or make determinations of cheating. Use it as a starting point for your own review, not as a final conclusion.
+</Note>
+
+## Uploading grades from Google Forms
+
+If your exam was on Google Forms, you can upload the responses CSV to add grade context to each session.
+
+<Steps>
+  <Step title="Export the responses CSV from Google Forms">
+    Open your Google Form, go to the **Responses** tab, click the three-dot menu, and choose **Download responses (.csv)**.
+  </Step>
+  <Step title="Upload the CSV to Proctorly">
+    Click **Upload Grades** in the report header and select your CSV file.
+  </Step>
+  <Step title="Review match results">
+    Proctorly reports how many student sessions were matched by email address. Unmatched rows are listed so you can investigate discrepancies.
+  </Step>
+</Steps>
+
+## Exporting the report
+
+Click **Export .xlsx** in the report header to download the full flag report as an Excel spreadsheet. The export includes all sessions, flag types, timestamps, integrity scores, risk levels, and verdicts.

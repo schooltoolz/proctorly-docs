@@ -1,0 +1,93 @@
+{
+  "projectType": "saas",
+  "projectName": "Proctorly",
+  "projectDescription": "AI-powered online exam proctoring platform that lets teachers create monitored assessments and review integrity reports — no student account required.",
+  "theme": "almond",
+  "primaryColor": "#4F46E5",
+  "lightColor": "#EEF2FF",
+  "darkColor": "#312E81",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "how-it-works"
+            ]
+          },
+          {
+            "group": "For Teachers",
+            "pages": [
+              "teachers/creating-a-test",
+              "teachers/inviting-students",
+              "teachers/live-monitoring",
+              "teachers/reviewing-reports",
+              "teachers/verdicts-and-actions"
+            ]
+          },
+          {
+            "group": "For Students",
+            "pages": [
+              "students/taking-an-exam",
+              "students/browser-permissions",
+              "students/id-verification"
+            ]
+          },
+          {
+            "group": "Plans & Billing",
+            "pages": [
+              "billing/plans",
+              "billing/credits",
+              "billing/faq"
+            ]
+          },
+          {
+            "group": "Settings",
+            "pages": [
+              "settings/alert-preferences",
+              "settings/accommodations",
+              "settings/account"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Browser-based proctoring with webcam, screen share, tab, and audio monitoring",
+    "AI-generated integrity reports with trust ratings (High/Medium/Low) via Claude",
+    "Token-gated student links — no student account required",
+    "Live exam dashboard with broadcast messaging and mass controls",
+    "Supports Google Forms, PDF, Excel, and Word exam formats",
+    "Per-student accommodations and sensitivity overrides",
+    "ID photo verification before exams",
+    "Grade upload and cross-referencing with integrity data",
+    "XLSX report export",
+    "Flexible plans: Free, Classroom, and School tiers"
+  ],
+  "publicApiSurface": [
+    "POST /api/sessions/create — start a student exam session",
+    "POST /api/flags/batch — submit monitoring flags during an exam",
+    "POST /api/sessions/[id]/snapshots — upload webcam/screen snapshots",
+    "POST /api/sessions/[id]/pause-request — student requests a pause",
+    "GET  /api/sessions/[id]/pause-state — poll for pause approval",
+    "POST /api/tests/create — create a new proctored test",
+    "POST /api/tests/upload — upload PDF/Excel/DOCX exam file",
+    "GET  /api/tests/[id]/poll — live report polling for teacher dashboard",
+    "POST /api/tests/[id]/broadcast — send message to students during exam",
+    "POST /api/tests/[id]/mass-screenshot — trigger snapshots across all sessions",
+    "POST /api/tests/[id]/mass-pause — pause all active sessions",
+    "POST /api/tests/[id]/mass-lock — lock all active sessions",
+    "POST /api/tests/[id]/upload-grades — upload Google Forms CSV for grade matching",
+    "POST /api/reports/generate — generate AI integrity summary for a session",
+    "POST /api/sessions/[id]/verdict — set per-session verdict",
+    "POST /api/sessions/bulk-verdict — bulk-set verdicts",
+    "POST /api/flags/[id]/decision — confirm or dismiss a flag",
+    "POST /api/users/alert-preferences — save teacher alert settings",
+    "POST /api/stripe/checkout — create Stripe checkout session"
+  ]
+}

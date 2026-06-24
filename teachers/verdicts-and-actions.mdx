@@ -1,0 +1,75 @@
+---
+title: "Recording verdicts and communicating about sessions"
+sidebarTitle: "Verdicts and actions"
+description: "Mark sessions as Clear, Flag for Review, or Escalate — individually or in bulk — and generate AI-drafted emails for admin or parent communication."
+---
+
+After reviewing a student's flags and integrity score, you record your verdict for that session. Verdicts let you document your decision, track which sessions still need attention, and communicate clearly with other stakeholders. Every session starts with a **Pending** status until you set a verdict.
+
+## The three verdicts
+
+<CardGroup cols={3}>
+  <Card title="Clear" icon="circle-check">
+    The session shows no meaningful integrity concerns. A Clear verdict overrides the integrity score — the session receives a score of 100 regardless of any flags recorded.
+  </Card>
+  <Card title="Flag for Review" icon="flag">
+    The session has activity that warrants a closer look but does not yet rise to escalation. Use this to mark sessions for a second pass or a discussion with a colleague.
+  </Card>
+  <Card title="Escalate" icon="triangle-alert">
+    The session has evidence of a serious integrity issue. Escalation is your formal record that this session requires further action.
+  </Card>
+</CardGroup>
+
+## Setting a verdict
+
+The verdict bar appears below every session row header in the report. You do not need to expand the full session detail to set a verdict.
+
+<Steps>
+  <Step title="Click a verdict button">
+    Click **Clear**, **Flag for Review**, or **Escalate** on the session's verdict bar. The selected verdict is highlighted immediately.
+  </Step>
+  <Step title="Add an optional note">
+    Type a note in the text area below the verdict buttons. Notes must be 280 characters or fewer. Notes are saved with the verdict and are visible to any teacher with access to the report.
+  </Step>
+  <Step title="Verdict saves automatically">
+    Clicking a verdict button saves it immediately — there is no separate save step. The verdict badge in the session list row updates in place.
+  </Step>
+</Steps>
+
+## Bulk verdict: mark all low-risk sessions as Clear
+
+When you have many sessions to review, the bulk verdict control at the top of the sessions list lets you clear low-risk sessions all at once.
+
+<Steps>
+  <Step title="Select all low-risk sessions">
+    Check **Select all Low risk**. The number of qualifying sessions appears in parentheses. This option only appears when at least one session has a Low risk level and no verdict set.
+  </Step>
+  <Step title="Apply the bulk verdict">
+    Click **Mark all as Clear**. Proctorly applies a Clear verdict to every selected session in a single operation.
+  </Step>
+</Steps>
+
+<Info>
+  Bulk verdict applies only to sessions with a Low risk level. Medium and High risk sessions are not affected.
+</Info>
+
+## AI-drafted email templates
+
+For sessions with flags, Proctorly can draft ready-to-edit email templates using Claude Haiku — one addressed to your school admin and one for the student's parent or guardian.
+
+Click **Generate email drafts** in the expanded session view. Both drafts appear in editable text areas.
+
+<Tabs>
+  <Tab title="Admin email">
+    Formal and factual. Lists each flag type with its timestamp. Refers the reader to the Proctorly dashboard for full data. Uses professional, neutral language and draws no conclusions.
+  </Tab>
+  <Tab title="Parent email">
+    Warm and non-accusatory. Avoids technical proctoring language. Refers to "some activity we'd like to discuss" rather than using words like "cheating" or "violation." Invites a conversation.
+  </Tab>
+</Tabs>
+
+Edit the text directly in the text area before copying. Click **Copy** next to either draft to copy it to your clipboard, or click **Regenerate** to request a fresh draft.
+
+<Note>
+  Email drafts are only available for sessions that have at least one flag. Sessions with no flags do not show the email draft panel.
+</Note>

@@ -1,0 +1,70 @@
+---
+title: "Creating a proctored test in Proctorly step by step"
+sidebarTitle: "Creating a test"
+description: "Set up a new proctored exam in under two minutes by linking a Google Form or uploading a PDF, Excel, or Word file up to 10 MB in size."
+---
+
+Every proctored exam in Proctorly starts with a test. Creating one takes under two minutes: give the test a title, point Proctorly at your exam content, and click **Create test**. Proctorly generates a unique secure token for the test, and the student access URL — `proctorly.schooltoolz.com/t/<token>` — is ready to share immediately.
+
+<Steps>
+  <Step title="Open the new test form">
+    Sign in at [proctorly.schooltoolz.com](https://proctorly.schooltoolz.com) and click **New test** from your dashboard or the **Tests** page.
+  </Step>
+
+  <Step title="Enter a test title">
+    Type a descriptive title such as `Midterm Exam — Spring 2026`. The title appears in your dashboard, in the live monitoring view, and in the student invitation email.
+  </Step>
+
+  <Step title="Choose your exam source">
+    Select either **Google Forms URL** or **Upload file** using the toggle at the top of the form.
+
+    <Tabs>
+      <Tab title="Google Forms URL">
+        Paste the full URL of your Google Form. The URL must contain `docs.google.com/forms` — for example:
+
+        ```text
+        https://docs.google.com/forms/d/1AbCdEfGhIjKlMnOpQrStUvWx/viewform
+        ```
+
+        Proctorly embeds the form inside the student's proctored session. Students submit answers directly through Google Forms while Proctorly monitors their browser in the background.
+      </Tab>
+      <Tab title="Upload file">
+        Click the upload area or drag and drop a file. Accepted formats:
+
+        | Format | Extension | Notes |
+        |--------|-----------|-------|
+        | PDF | `.pdf` | Displayed as a read-only document |
+        | Excel | `.xlsx` | Rendered as an HTML table |
+        | Word | `.docx` | Rendered as formatted HTML |
+
+        Maximum file size is **10 MB**.
+      </Tab>
+    </Tabs>
+  </Step>
+
+  <Step title="Create the test">
+    Click **Create test**. Proctorly returns a shareable link — for example:
+
+    ```text
+    https://proctorly.schooltoolz.com/t/a1b2c3d4e5f6
+    ```
+
+    Click **Copy link** to copy it to your clipboard. You can share this link directly, or use Proctorly's built-in invitation flow to send personalized links to each student by email.
+  </Step>
+</Steps>
+
+## Plan limits
+
+The number of tests you can create per month and the number of students allowed per test depends on your plan.
+
+| Plan | Tests per month | Students per test | Report retention |
+|------|----------------|-------------------|-----------------|
+| Free | 2 | 15 | 7 days |
+| Classroom | Unlimited | 30 | 90 days |
+| School | Unlimited | Unlimited | Unlimited |
+
+<Note>
+  School plan includes up to 5 teacher seats. Upgrade your plan from the **Billing** page.
+</Note>
+
+If you reach your monthly test limit or your per-test student cap, Proctorly shows an error when you try to proceed.
