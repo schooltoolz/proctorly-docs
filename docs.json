@@ -4,9 +4,9 @@
   "name": "Proctorly Help Center",
   "description": "Documentation and guides for Proctorly — AI-powered online exam proctoring for educators.",
   "colors": {
-    "primary": "#4F46E5",
-    "light": "#818CF8",
-    "dark": "#312E81"
+    "primary": "#25a667",
+    "light": "#34c77b",
+    "dark": "#1f8e58"
   },
   "favicon": "/favicon.ico",
   "icons": {
@@ -98,8 +98,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/help-center-light.svg",
+    "dark": "/logo/help-center-dark.svg"
   },
   "navbar": {
     "links": [
